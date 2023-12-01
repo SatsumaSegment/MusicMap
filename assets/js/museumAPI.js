@@ -18,7 +18,7 @@ function displayArtistData() {
         var result = data.objectIDs;
 
         // Range for results (Set to 20 as default)
-        var subResults = result.slice(1, 200)
+        var subResults = result//.slice(1, 200)
 
         // Sliced ObjectIDs
         console.log(subResults)
@@ -37,19 +37,21 @@ function displayArtistData() {
                 if (subData.message === "Not a valid object") {
                     // Use for 404 Error pages when displaying
                     console.log("Page does not exist");
-                } else {
-                    // Desired Data
-                    console.log(subData)
+                } else if (subData.city !== "") {
+                    console.log(subData);
+                 } //else {
+                //     // Desired Data
+                //     console.log(subData)
 
-                    // Store desired data in variables
-                    var artistName = subData.artistDisplayName;
-                    var artistNationality = subData.artistNationality;
-                    var artworkName = subData.title;
-                    var artwokDate = subData.objectDate;
-                    var artworkImage = subData.primaryImage;
-                    var artworkCountry = subData.country;
-                    var artworkCity = subData.city;
-                }
+                //     // Store desired data in variables
+                //     var artistName = subData.artistDisplayName;
+                //     var artistNationality = subData.artistNationality;
+                //     var artworkName = subData.title;
+                //     var artwokDate = subData.objectDate;
+                //     var artworkImage = subData.primaryImage;
+                //     var artworkCountry = subData.country;
+                //     var artworkCity = subData.city;
+                // }
             })        
         })
     })
