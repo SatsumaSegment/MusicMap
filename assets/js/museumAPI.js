@@ -31,8 +31,6 @@ function displayArtistData() {
             })
             .then(function(subData) {
 
-                console.log(subData)
-
                 // Validation for ObjectIDs that have nothing
                 if (subData.message === "Not a valid object") {
                     // Use for 404 Error pages when displaying
