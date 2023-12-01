@@ -1,6 +1,8 @@
+var searchButton = $('#search-button'); // Search button
+
 function displayArtistData() {
     // API setup
-    //var artist = $('#search-bar').val().trim();
+    //var artist = $('#search-bar').val();
     var queryURL = `https://collectionapi.metmuseum.org/public/collection/v1/search?q=picasso`;
 
     fetch(queryURL)
@@ -55,3 +57,5 @@ function displayArtistData() {
 
 displayArtistData();
 
+// Listen for click on search button
+searchButton.on('click', displayArtistData);
