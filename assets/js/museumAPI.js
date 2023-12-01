@@ -6,7 +6,8 @@ function displayArtistData() {
     fetch(queryURL)
     .then(function(response) {
         return response.json();
-    }).then(function(data) {
+    })
+    .then(function(data) {
 
         // ObjectIDs
         console.log(data.objectIDs);
@@ -15,7 +16,7 @@ function displayArtistData() {
         var result = data.objectIDs;
 
         // Range for results (Set to 20 as default)
-        var subResults = result.slice(1, 21)
+        var subResults = result.slice(1, 200)
 
         // Sliced ObjectIDs
         console.log(subResults)
@@ -27,11 +28,19 @@ function displayArtistData() {
             fetch(url)
             .then(function(response) {
                 return response.json();
-            }).then(function(subData) {
+            })
+            .then(function(subData) {
 
-                // Desired Information
-                console.log(subData);
+                console.log(subData)
 
+                // Validation for ObjectIDs that have nothing
+                if (subData.message === "Not a valid object") {
+                    // Use for 404 Error pages when displaying
+                    console.log("Page does not exist");
+                } else {
+                    // Desired Data
+                    console.log(subData)
+                }
             })        
         })
     })
