@@ -38,6 +38,15 @@ function displayArtistData() {
                 } else {
                     // Desired Data
                     console.log(subData)
+
+                    // Store desired data in variables
+                    var artistName = subData.artistDisplayName;
+                    var artistNationality = subData.artistNationality;
+                    var artworkName = subData.title;
+                    var artwokDate = subData.objectDate;
+                    var artworkImage = subData.primaryImage;
+                    var artworkCountry = subData.country;
+                    var artworkCity = subData.city;
                 }
             })        
         })
@@ -45,3 +54,4 @@ function displayArtistData() {
 }
 
 displayArtistData();
+
