@@ -79,12 +79,23 @@
           type="search"
           placeholder="Search"
           aria-label="Search"
+          id="search-input"
         />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button">
           Search
         </button>
       </form>
     </nav>
+
+      <!-- Selection box -->
+      <h2>Checkbox</h2>
+      <fieldset>
+          <legend>Event Timings: </legend>
+          <label for="checkbox-1">Past</label>
+          <input type="checkbox" name="checkbox-1" id="checkbox-1">
+          <label for="checkbox-2">Upcoming</label>
+          <input type="checkbox" name="checkbox-2" id="checkbox-2" checked>
+      </fieldset>      
 
     <!-- Bootstrap JavaScript -->
     <script
@@ -95,6 +106,9 @@
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Local JavaScripts -->
-    <script src="assets/js/museumAPI.js"></script>
-  </body>
+    <script src="assets/js/BandsAPI.js"></script>
+</body>
+
+
+
 </html>
