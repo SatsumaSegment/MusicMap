@@ -32,23 +32,27 @@ function displayArtistData(event) {
     })
     .then(function(data) {
 
-        // Information
+        // Information and variables
+        var imgDiv = $("#artistImg")
+        var nameDiv = $("#artistName")
+        var btnDiv = $("#artistButtons")
+        
         console.log(data);
 
+        imgDiv.empty();
+        nameDiv.empty()
+        btnDiv.empty();
+        
         // Artist Information
         var artistName = data[0].artist.name
         var artistImage = data[0].artist.image_url
 
         // Image and Name
         var img = $(`<img src='${artistImage}' class="img-fluid rounded-start" alt="...">`)
-        var artistH1 = $(`<h1 class="card-title">${artistName}</h1>`).attr("style", "text-align: center;" )
-
-        var imgDiv = $("#artistImg")
-        var infoDiv = $("#artistInfo")
-        
+        var artistH1 = $(`<h1 class="card-title">${artistName}</h1>`).attr("style", "text-align: center;")   
 
         imgDiv.append(img)
-        infoDiv.append(artistH1)
+        nameDiv.append(artistH1)
 
         // Links to Socials
         var artistLinks = data[0].artist.links
@@ -62,11 +66,9 @@ function displayArtistData(event) {
 
             var linkButton = $(`<a href="${linkURL}" class="btn btn-primary" type="button">${linkName}</a>`)
 
-            var btnDiv = $("#artistButtons")
-
             btnDiv.append(linkButton)
 
-            console.log*linkURL
+            
         })
 
 
