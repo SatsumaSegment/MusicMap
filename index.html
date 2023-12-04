@@ -57,9 +57,9 @@
     </nav>
 
     <!-- Description Jumbotron -->
-    <div class="mt-4 p-5 bg-primary text-white rounded">
-      <h1>MusicMap</h1>
-      <p>
+    <div class="text-center p-5 bg-primary text-white rounded-bottom">
+      <h1 class="mb-4">MusicMap</h1>
+      <p class="col-sm-6 m-auto mb-4">
         MusicMap is a versatile web application allowing users to search for
         musicians and visualize both past and upcoming shows on an interactive
         map. The platform provides detailed information about concert venues,
@@ -72,30 +72,38 @@
     </div>
 
     <!-- Search Bar -->
-    <nav class="navbar navbar-light bg-light">
-      <form class="form-inline">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          id="search-input"
-        />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button">
-          Search
-        </button>
-      </form>
-    </nav>
+    <section class="container">
+      <form class="form-inline py-5">
+        <div class="row g-3">
+          <div class="col mr-0">
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              id="search-input"
+            />
+          </div>
 
-      <!-- Selection box -->
-      <h2>Checkbox</h2>
-      <fieldset>
-          <legend>Event Timings: </legend>
-          <label for="checkbox-1">Past</label>
-          <input type="checkbox" name="checkbox-1" id="checkbox-1">
-          <label for="checkbox-2">Upcoming</label>
-          <input type="checkbox" name="checkbox-2" id="checkbox-2" checked>
-      </fieldset>      
+          <div class="col-sm-1">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button">
+              Search
+            </button>
+          </div>
+
+          <!-- Selection box -->
+          <div class="col">
+            <fieldset>
+              <legend>Event Timings: </legend>
+              <label for="checkbox-1">Past</label>
+              <input type="checkbox" name="checkbox-1" id="checkbox-1">
+              <label for="checkbox-2">Upcoming</label>
+              <input type="checkbox" name="checkbox-2" id="checkbox-2" checked>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </scetion>   
 
     <!-- Bootstrap JavaScript -->
     <script
