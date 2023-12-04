@@ -28,6 +28,8 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
+* Google Map Markers: https://github.com/googlemaps/js-markerclusterer
+
 List your collaborators, if any, with links to their GitHub profiles.
 Third parties! ! at require attribution, list the creators with links to their primary web presence in this section.
 
