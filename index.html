@@ -29,7 +29,7 @@
               height="24"
               class="d-inline-block align-text-top"
             />
-            CanvasCompass
+            MusicMap
           </a>
         </div>
 
@@ -73,13 +73,13 @@
 
     <!-- Search Bar -->
     <section class="container">
-      <form class="form-inline py-5">
+      <form class="form-inline py-5 px-5">
         <div class="row g-3">
           <div class="col mr-0">
             <input
               class="form-control"
               type="search"
-              placeholder="Search"
+              placeholder="Search a Band..."
               aria-label="Search"
               id="search-input"
             />
@@ -92,14 +92,16 @@
           </div>
 
           <!-- Selection box -->
-          <div class="col">
-            <fieldset>
-              <legend>Event Timings: </legend>
+          <div class="col form-check">
+              <legend>Event Timings:</legend>
+            <div class="">
               <label for="checkbox-1">Past</label>
               <input type="checkbox" name="checkbox-1" id="checkbox-1">
+            </div>
+            <div class="">
               <label for="checkbox-2">Upcoming</label>
               <input type="checkbox" name="checkbox-2" id="checkbox-2" checked>
-            </fieldset>
+            </div>
           </div>
         </div>
       </form>
@@ -107,7 +109,7 @@
 
     <!-- Map display -->
     <div class="container">
-      <iframe src="#" frameborder="1"></iframe>
+      <iframe src="https://www.google.com/maps/embed/v1/place?q=England&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" frameborder="1"></iframe>
     </div>
 
     <!-- Display Artist Information -->
