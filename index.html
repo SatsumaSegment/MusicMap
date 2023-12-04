@@ -12,7 +12,7 @@
     />
     <!-- Local CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <title>CavasCompass</title>
+    <title>MusicMap</title>
 
     <!--Map-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -21,7 +21,7 @@
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary px-5 fixed-top">
       <div class="container-fluid">
         <!-- Navbar Logo -->
         <div class="container-fluid">
@@ -61,7 +61,7 @@
     </nav>
 
     <!-- Description Jumbotron -->
-    <div class="text-center p-5 bg-primary text-white rounded-bottom">
+    <div class="text-center p-5 bg-primary text-white rounded-bottom mt-5">
       <h1 class="mb-4">MusicMap</h1>
       <p class="col-sm-6 m-auto mb-4">
         MusicMap is a versatile web application allowing users to search for
@@ -116,13 +116,13 @@
 
     <!-- Display Artist Information -->
     <div class="card mb-3">
-      <div class="row g-0">
+      <div class="row g-0" id="results">
         <div class="col-md-4" id="artistImg">
         </div>
         <div class="col-md-8">
-          <div class="card-body" id="artistInfo">
-            <div class="d-grid gap-2" id="artistButtons">
-            </div>
+          <div class="card-body" id="artistName">
+          </div>
+          <div class="d-grid gap-2" id="artistButtons">
           </div>
         </div>
       </div>

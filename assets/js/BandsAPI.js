@@ -32,23 +32,38 @@ function displayArtistData(event) {
     })
     .then(function(data) {
 
-        // Information
+        // Information and variables
+        var imgDiv = $("#artistImg")
+        var nameDiv = $("#artistName")
+        var btnDiv = $("#artistButtons")
+
+        if (data == "") { 
+            
+            var noImg = $(`<img src='https://placehold.jp/ffffff/000000/720x722.png?text=No%20Upcoming%20Events%20With%20This%20Artist' class="img-fluid rounded-start" alt="...">`)
+            var noResults = $(`<h3 style="text-align: center;" class="align-middle">Sorry Artist Cannot Be Found Or Has No Upcoming Events</h3>`);
+            nameDiv.append(noResults)
+            imgDiv.append(noImg)
+            return;
+
+        }       
+        
         console.log(data);
 
+        imgDiv.empty();
+        nameDiv.empty()
+        btnDiv.empty();
+
+        
         // Artist Information
         var artistName = data[0].artist.name
         var artistImage = data[0].artist.image_url
 
         // Image and Name
         var img = $(`<img src='${artistImage}' class="img-fluid rounded-start" alt="...">`)
-        var artistH1 = $(`<h1 class="card-title">${artistName}</h1>`).attr("style", "text-align: center;" )
-
-        var imgDiv = $("#artistImg")
-        var infoDiv = $("#artistInfo")
-        
+        var artistH1 = $(`<h1 class="card-title">${artistName}</h1>`).attr("style", "text-align: center;")   
 
         imgDiv.append(img)
-        infoDiv.append(artistH1)
+        nameDiv.append(artistH1)
 
         // Links to Socials
         var artistLinks = data[0].artist.links
@@ -62,11 +77,8 @@ function displayArtistData(event) {
 
             var linkButton = $(`<a href="${linkURL}" class="btn btn-primary" type="button">${linkName}</a>`)
 
-            var btnDiv = $("#artistButtons")
-
-            btnDiv.append(linkButton)
+            btnDiv.append(linkButton)          
         })
-
 
         // Venue Information
         data.forEach(function(ID) {
