@@ -13,6 +13,10 @@
     <!-- Local CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>CavasCompass</title>
+
+    <!--Map-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script type="module" src="./assets/js/map.js"></script>
   </head>
 
   <body>
@@ -105,12 +109,10 @@
           </div>
         </div>
       </form>
-    </scetion>   
+    </section>   
 
     <!-- Map display -->
-    <div class="container">
-      <iframe src="https://www.google.com/maps/embed/v1/place?q=England&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" frameborder="1"></iframe>
-    </div>
+    <div id="map"></div>
 
     <!-- Display Artist Information -->
     <div class="card mb-3">
@@ -136,6 +138,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Local JavaScripts -->
     <script src="assets/js/BandsAPI.js"></script>
+    <!--Map API script-->
+      <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyC1_Oq6EswbW4t_Yp_dBD0Hax7Nz-m-Lzs", v: "weekly"});</script>
+      <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 </body>
 
 
