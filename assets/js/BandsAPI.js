@@ -36,12 +36,23 @@ function displayArtistData(event) {
         var imgDiv = $("#artistImg")
         var nameDiv = $("#artistName")
         var btnDiv = $("#artistButtons")
+
+        if (data == "") { 
+            
+            var noImg = $(`<img src='https://placehold.jp/ffffff/000000/720x722.png?text=No%20Upcoming%20Events%20With%20This%20Artist' class="img-fluid rounded-start" alt="...">`)
+            var noResults = $(`<h3 style="text-align: center;" class="align-middle">Sorry Artist Cannot Be Found Or Has No Upcoming Events</h3>`);
+            nameDiv.append(noResults)
+            imgDiv.append(noImg)
+            return;
+
+        }       
         
         console.log(data);
 
         imgDiv.empty();
         nameDiv.empty()
         btnDiv.empty();
+
         
         // Artist Information
         var artistName = data[0].artist.name
