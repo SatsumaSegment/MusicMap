@@ -66,11 +66,8 @@ function displayArtistData(event) {
 
             var linkButton = $(`<a href="${linkURL}" class="btn btn-primary" type="button">${linkName}</a>`)
 
-            btnDiv.append(linkButton)
-
-            
+            btnDiv.append(linkButton)          
         })
-
 
         // Venue Information
         data.forEach(function(ID) {
