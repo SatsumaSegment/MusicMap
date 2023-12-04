@@ -58,13 +58,15 @@ function displayArtistData(event) {
 
             // Buttons
             var linkName = LK.type.charAt(0).toUpperCase() + LK.type.slice(1);
-            var linkURL = LK.linkURL
+            var linkURL = LK.url
 
             var linkButton = $(`<a href="${linkURL}" class="btn btn-primary" type="button">${linkName}</a>`)
 
             var btnDiv = $("#artistButtons")
 
             btnDiv.append(linkButton)
+
+            console.log*linkURL
         })
 
 
