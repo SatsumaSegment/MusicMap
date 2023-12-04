@@ -1,5 +1,7 @@
 var searchButton = $('#search-button');
 
+var locateBand = [];
+
 function displayArtistData(event) {
 
     event.preventDefault();
@@ -89,10 +91,16 @@ function displayArtistData(event) {
             var latitude = venue.latitude;
             var longitude = venue.longitude;
             var location = venue.location;
-
+            var latLng = {
+                lat: parseFloat(longitude),
+                lng: parseFloat(latitude)
+            }    
+            locateBand.push(latLng)
         });
+        localStorage.setItem("locations", JSON.stringify(locateBand));
     });
 };
 
 // Listen for click on search button
-searchButton.on('click', displayArtistData);
+// searchButton.on('click', displayArtistData);
+console.log(locateBand);
