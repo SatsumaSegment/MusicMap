@@ -35,10 +35,43 @@ function displayArtistData(event) {
         // Information
         console.log(data);
 
-        // Information for code here
+        // Artist Information
+        var artistName = data[0].artist.name
+        var artistImage = data[0].artist.image_url
+
+        // Image and Name
+        var img = $(`<img src='${artistImage}' class="img-fluid rounded-start" alt="...">`)
+        var artistH1 = $(`<h1 class="card-title">${artistName}</h1>`).attr("style", "text-align: center;" )
+
+        var imgDiv = $("#artistImg")
+        var infoDiv = $("#artistInfo")
+        
+
+        imgDiv.append(img)
+        infoDiv.append(artistH1)
+
+        // Links to Socials
+        var artistLinks = data[0].artist.links
+        var filtered = artistLinks.filter(val => val.type === 'soundcloud' || val.type === 'spotify' || val.type === 'twitter')
+
+        filtered.forEach(function(LK) {
+
+            // Buttons
+            var linkName = LK.type.charAt(0).toUpperCase() + LK.type.slice(1);
+            var linkURL = LK.linkURL
+
+            var linkButton = $(`<a href="${linkURL}" class="btn btn-primary" type="button">${linkName}</a>`)
+
+            var btnDiv = $("#artistButtons")
+
+            btnDiv.append(linkButton)
+        })
+
+
+        // Venue Information
         data.forEach(function(ID) {
 
-            var artistName = input
+            // Venue Location
             var venue = ID.venue;
             var city = venue.city
             var latitude = venue.latitude;
