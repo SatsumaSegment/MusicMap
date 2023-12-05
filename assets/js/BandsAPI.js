@@ -53,7 +53,7 @@ function displayArtistData(event) {
 
         }       
         
-        console.log(data);
+        // console.log(data);
        
         // Artist Information
         var artistName = data[0].artist.name
@@ -96,10 +96,9 @@ function displayArtistData(event) {
             }    
             locateBand.push(latLng)
         });
-        localStorage.setItem("locations", JSON.stringify(locateBand));
     });
 };
 
 // Listen for click on search button
 // searchButton.on('click', displayArtistData);
-console.log(locateBand);
+// console.log(locateBand);
