@@ -91,11 +91,12 @@ function displayArtistData(event) {
             var longitude = venue.longitude;
             var location = venue.location;
             var latLng = {
-                lat: parseFloat(longitude),
-                lng: parseFloat(latitude)
+                lat: parseFloat(latitude),
+                lng: parseFloat(longitude)
             }    
             locateBand.push(latLng)
         });
+        // console.log(locateBand);
     });
 };
 
