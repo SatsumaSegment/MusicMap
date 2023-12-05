@@ -51,6 +51,11 @@ body {
   margin-left: 10%;
 }
 
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 /* Styling for the map and band display section */
 .main {
   display: inline-flex;
@@ -84,4 +89,6 @@ body {
 h3 {
     margin-top: 25%;
 }
+
+
 
