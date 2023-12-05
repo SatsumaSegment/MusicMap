@@ -8,8 +8,8 @@ async function initMap() {
 
   // Create a new map object
   map = new Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
+    center: { lat: 52.3555, lng: 1.1743 },
+    zoom: 6,
   });
   mkr = Marker; // set global variable to Markers library
 }

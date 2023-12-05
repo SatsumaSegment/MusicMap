@@ -76,8 +76,8 @@
     </div>
 
     <!-- Search Bar -->
-    <section class="container">
-      <form class="form-inline py-5 px-5">
+    <section class="container search-bar">
+      <form class="form-inline py-5">
         <div class="row g-3">
           <div class="col mr-0">
             <input
@@ -89,6 +89,7 @@
             />
           </div>
 
+          <!-- Search Button -->
           <div class="col-sm-1">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button" onclick="displayArtistData(event)">
               Search
@@ -111,22 +112,25 @@
       </form>
     </section>   
 
-    <!-- Map display -->
-    <div id="map"></div>
+    <!-- Main section (map and band display) -->
+    <section class="main">
+      <!-- Map display -->
+      <div id="map"></div>
 
-    <!-- Display Artist Information -->
-    <div class="card mb-3">
-      <div class="row g-0" id="results">
-        <div class="col-md-4" id="artistImg">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body" id="artistName">
+      <!-- Display Artist Information -->
+      <div class="card mb-3">
+        <div class="row g-0" id="results">
+          <div class="col-md-4" id="artistImg">
           </div>
-          <div class="d-grid gap-2" id="artistButtons">
+          <div class="row">
+            <div class="card-body" id="artistName">
+            </div>
+            <div class="d-grid gap-2" id="artistButtons">
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>  
 
     <!-- Bootstrap JavaScript -->
     <script
