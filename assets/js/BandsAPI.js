@@ -81,6 +81,7 @@ function displayArtistData(event) {
             btnDiv.append(linkButton)          
         })
 
+        locateBand = [];
         // Venue Information
         data.forEach(function(ID) {
 
@@ -101,5 +102,5 @@ function displayArtistData(event) {
 };
 
 // Listen for click on search button
-// searchButton.on('click', displayArtistData);
+searchButton.on('click', displayArtistData);
 // console.log(locateBand);

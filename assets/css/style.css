@@ -1,23 +1,72 @@
-/* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
- #map {
-    height: 100%;
-    
-  }
+/* Google Maps div */
+#map {
+  margin: auto;
+  margin-top: 0;
+  margin-left: 10%;
+  height: 80%;
+  width: 50%;
+  border: 2px solid black;
+  border-radius: 15px 15px;
+  box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
+}
   
-  /* 
-   * Optional: Makes the sample page fill the window. 
-   */
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
+/* Normalize the body */
+html,
+body {
+  font-family: 'Comfortaa', sans-serif;
+  color: white;
+  background-color: rgb(51, 51, 51);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
+/* Styling for the navbar */
+.navbar {
+  opacity: 90%;
+}
+
+/* Styling for the Hero */
+.hero {
+  letter-spacing: 2px;
+}
+
+
+/* Styling for the search bar section */
+.search-bar {
+  margin-left: 10%;
+}
+
+/* Styling for the map and band display section */
+.main {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* Styling for the band display card */
+.card {
+  width: 28%;
+  height: 80%;
+  padding: 5%;
+  margin-right: 10%;
+  text-align: center;
+  color: white;
+  background-color: rgb(97, 97, 97);
+  border: 2px solid black;
+  box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Center the band image and adjust the size */
+#artistImg {
+  margin: auto;
+  margin-left: 5%;
+  width: 80%;
+  border: 2px solid black;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for the band name */
 h3 {
     margin-top: 25%;
 }

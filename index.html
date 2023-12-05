@@ -10,6 +10,13 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Kanit:wght@100;400&display=swap" rel="stylesheet">
+    
+
     <!-- Local CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>MusicMap</title>
@@ -21,7 +28,7 @@
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary px-5 fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 fixed-top">
       <div class="container-fluid">
         <!-- Navbar Logo -->
         <div class="container-fluid">
@@ -61,8 +68,8 @@
     </nav>
 
     <!-- Description Jumbotron -->
-    <div class="text-center p-5 bg-primary text-white rounded-bottom mt-5">
-      <h1 class="mb-4">MusicMap</h1>
+    <div class="text-center p-5 bg-primary text-white rounded-bottom mt-5 hero">
+      <h1 class="mb-4 display-1">MusicMap</h1>
       <p class="col-sm-6 m-auto mb-4">
         MusicMap is a versatile web application allowing users to search for
         musicians and visualize both past and upcoming shows on an interactive
@@ -76,8 +83,8 @@
     </div>
 
     <!-- Search Bar -->
-    <section class="container">
-      <form class="form-inline py-5 px-5">
+    <section class="container search-bar">
+      <form class="form-inline py-5">
         <div class="row g-3">
           <div class="col mr-0">
             <input
@@ -89,8 +96,9 @@
             />
           </div>
 
+          <!-- Search Button -->
           <div class="col-sm-1">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button" onclick="displayArtistData(event)">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button">
               Search
             </button>
           </div>
@@ -111,22 +119,25 @@
       </form>
     </section>   
 
-    <!-- Map display -->
-    <div id="map"></div>
+    <!-- Main section (map and band display) -->
+    <section class="main">
+      <!-- Map display -->
+      <div id="map"></div>
 
-    <!-- Display Artist Information -->
-    <div class="card mb-3">
-      <div class="row g-0" id="results">
-        <div class="col-md-4" id="artistImg">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body" id="artistName">
+      <!-- Display Artist Information -->
+      <div class="card mb-3">
+        <div class="row g-0" id="results">
+          <div class="col-md-4" id="artistImg">
           </div>
-          <div class="d-grid gap-2" id="artistButtons">
+          <div class="row">
+            <div class="card-body" id="artistName">
+            </div>
+            <div class="d-grid gap-2" id="artistButtons">
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>  
 
     <!-- Bootstrap JavaScript -->
     <script
