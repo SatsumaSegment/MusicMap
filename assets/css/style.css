@@ -21,6 +21,20 @@ body {
   padding: 0;
 }
 
+/* Font types */
+.logo-font {
+  font-family: 'Fredoka', sans-serif;
+}
+
+.accent-font {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.main-font {
+  font-family: 'Arimo', sans-serif;
+}
+
+
 /* Styling for the navbar */
 .navbar {
   opacity: 90%;
