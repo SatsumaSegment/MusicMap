@@ -1,6 +1,8 @@
 let map;
 let mkr = 0; // Global placeholder for the Marker constructor
 
+let markers = []; // Arry of markers on map
+
 // Use async to make sure google maps library is loaded before completing function
 async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");      // Import map
@@ -15,7 +17,12 @@ async function initMap() {
 }
 
 // Loop venues and set markers
-function setMarkers() {
+function setMarkers(event) {
+  event.preventDefault();
+  // Delete any existing markers
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
   // Loop each item in the venues array
   locateBand.forEach(function(item) {
     // Create a new marker
@@ -23,6 +30,7 @@ function setMarkers() {
       map: map,                                   // Add marker to map
       position: { lat: item.lat, lng: item.lng }  // Set position of marker
     });
+    markers.push(marker);
     console.log(item.lat);
   })
 }
