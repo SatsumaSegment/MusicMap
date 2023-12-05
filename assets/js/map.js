@@ -36,6 +36,7 @@ function setMarkers(event) {
 }
 
 initMap();
+
 // Listen for search button click
 searchButton.on('click', setMarkers);
 
