@@ -1,10 +1,7 @@
 // Global Variables
 var searchButton = $('#search-button');
+var clearButton = $('#historyClear')
 var locateBand = [];
-
-var existingHistory = localStorage.getItem("history")
-var artistHistory = [];
-artistHistory.push(existingHistory)
 
 // Display Artist
 function displayArtistData(event) {
@@ -64,10 +61,7 @@ function displayArtistData(event) {
         var artistName = data[0].artist.name
         var artistImage = data[0].artist.image_url
 
-        artistHistory.push(artistName)
-
-        localStorage.setItem("history", artistHistory) 
-
+        
         // Image and Name
         var img = $(`<img src='${artistImage}' class="img-fluid rounded-start" alt="...">`)
         var artistH1 = $(`<h1 class="card-title">${artistName}</h1>`).attr("style", "text-align: center;")   
@@ -107,11 +101,36 @@ function displayArtistData(event) {
             }    
             locateBand.push(latLng)
         });
+
+        // Add History
+        var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
+        existingHistory.push(artistName)
+        localStorage.setItem("history", JSON.stringify(existingHistory))
+
+        var dropdown = $("#dropdownList")
+        existingHistory.forEach(function(Name) {
+            var createList = $(`<li><a class="dropdown-item" data-name=${Name}>${Name}</a></li>`)
+            dropdown.append(createList)
+        })
+
+        
     });
 };
+
+// Removing History
+function removeHistory(event) {
+    
+    event.preventDefault();
+    localStorage.clear("history");
+    artistHistory = [];
+
+}
+
+
 
 // Listen for click on search button
 searchButton.on('click', displayArtistData);
 
 // Listen for clicks on clear button
+clearButton.on('click', removeHistory)
 
