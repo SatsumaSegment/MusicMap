@@ -57,6 +57,7 @@ body {
 .hero-text {
   position: relative;
   z-index: 2;
+
 }
 
 #hero-logo {
@@ -114,8 +115,34 @@ h3 {
 
 /* FAQ Styling */
 .accordion {
+  /* text colour of opened accordion item*/
   --bs-accordion-color: white;
-  --bs-accordion-bg: rgb(97, 97, 97);
+  /* bg of open accordion item */
+  --bs-accordion-bg: black;
+  /* text colour of buttons */
   --bs-accordion-btn-color: white;
+
+  /* outline */
+  --bs-accordion-border-color: black;
+
+  /* box shadow */
   box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
+
+  /* accordion active button */
+  /* spacing text and outer */
+  --bs-accordion-btn-padding-y: 1.25rem;
+  /* colour of text when open */
+  --bs-accordion-active-color: black;
+  /* colour of bg when active */
+  --bs-accordion-active-bg: orange;
+  /* bg when closed */
+  --bs-accordion-btn-bg: rgb(97, 97, 97); 
+}
+
+.accordion-body {
+  --bs-accordion-body-padding-y: 30px;
+}
+
+.container {
+--bs-gutter-y: 2.5rem;
 }
