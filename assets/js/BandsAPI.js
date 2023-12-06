@@ -121,10 +121,12 @@ async function displayArtistData(event) {
       var dropdown = $("#dropdownList");
       dropdown.empty();
       existingHistory.forEach(function (Name) {
-        var createList = $(
-          `<li><button class="dropdown-item" id="historyButton">${Name}</button></li>`
-        );
-        dropdown.append(createList);
+        
+        var listEl = $("<li>")
+        var buttonEl = $('<button class="dropdown-item" id="historyButton"></button>').attr("data-name", Name.toString()).text(Name)
+        listEl.append(buttonEl)
+        dropdown.append(listEl);
+
       });
     });
 }
@@ -142,8 +144,12 @@ function removeHistory(event) {
 var dropdown = $("#dropdownList");
 var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
 existingHistory.forEach(function (Name) {
-  var createList = $(`<li><button class="dropdown-item" id="historyButton">${Name}</button></li>`);
-  dropdown.append(createList);
+
+  var listEl = $("<li>")
+  var buttonEl = $('<button class="dropdown-item" id="historyButton"></button>').attr("data-name", Name.toString()).text(Name)
+  listEl.append(buttonEl)
+  dropdown.append(listEl);
+
 });
 
 // Recall History
@@ -152,7 +158,7 @@ function historyArtistData(event) {
   event.preventDefault();
 
   // API setup
-  var input = document.getElementById("historyButton").textContent
+  var input = event.target.textContent
 
   // Checkboxes
   var pastC = $("#checkbox-1");
