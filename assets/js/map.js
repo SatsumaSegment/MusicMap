@@ -27,14 +27,19 @@ function setMarkers(event) {
     }
     // Loop each item in the venues array
     locateBand.forEach(function (item) {
-      var contentString = `<div><h1 style="color: blue;">${item.location}</h1></div>`
+      var contentString = 
+      `<div class="dark"><p><strong>${item.artist}</strong> is performing at</p>
+      <p><strong>Venue</strong>: ${item.venueName} at,</p>
+      <p><strong>Start Time</strong>: ${item.startTime}</p>
+      <p><strong>Address</strong>: ${item.street}</p>
+      <p><strong>Location</strong>: ${item.location}</p>
+      </div>`
       // Create a new marker
       let marker = new mkr({
         map: map, // Add marker to map
         position: { lat: item.latitude, lng: item.longitude }, // Set position of marker
       });
       markers.push(marker);
-      console.log(item.ven);
 
       const infowindow = new google.maps.InfoWindow({
         content: contentString,

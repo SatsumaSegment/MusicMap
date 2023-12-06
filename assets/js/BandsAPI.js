@@ -95,22 +95,26 @@ async function displayArtistData(event) {
       });
 
       locateBand = [];
-
+      console.log(data)
       // Venue Information
       data.forEach(function (ID) {
         // Venue Location
+        var srtTime = ID.starts_at
         var venue = ID.venue;
         var strAd = venue.street_address;
         var lat = venue.latitude;
         var lng = venue.longitude;
         var loc = venue.location;
-        var trName = venue.name;
+        var name = venue.name;
+        var artName = ID.artist.name;
         var latLng = {
           latitude: parseFloat(lat),
           longitude: parseFloat(lng),
           street: strAd,
           location: loc,
-          tourName: trName
+          venueName: name,
+          startTime: srtTime,
+          artist: artName
         };
         locateBand.push(latLng);
       });
