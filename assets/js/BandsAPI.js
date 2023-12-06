@@ -2,7 +2,7 @@
 var searchButton = $("#search-button");
 var clearButton = $("#historyClear");
 var locateBand = [];
-var historyButton = $("#historyButton");
+var historyButton = $("#dropdownList");
 
 // Display Artist
 async function displayArtistData(event) {
@@ -142,18 +142,17 @@ function removeHistory(event) {
 var dropdown = $("#dropdownList");
 var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
 existingHistory.forEach(function (Name) {
-  var createList = $(
-    `<li><button class="dropdown-item" id="historyButton">${Name}</button></li>`
-  );
+  var createList = $(`<li><button class="dropdown-item" id="historyButton">${Name}</button></li>`);
   dropdown.append(createList);
 });
 
 // Recall History
 function historyArtistData(event) {
+  
   event.preventDefault();
 
   // API setup
-  var input = $("#search-input").val();
+  var input = document.getElementById("historyButton").textContent
 
   // Checkboxes
   var pastC = $("#checkbox-1");
@@ -253,11 +252,13 @@ function historyArtistData(event) {
         };
         locateBand.push(latLng);
       });
+
+      
     });
 }
 
 // Listen for clicks on clear button
 clearButton.on("click", removeHistory);
 
-//
+// Listen for clicks on history button
 historyButton.on("click", historyArtistData);
