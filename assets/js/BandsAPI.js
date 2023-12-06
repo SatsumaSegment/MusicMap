@@ -5,7 +5,7 @@ var locateBand = [];
 var historyButton = $("#historyButton")
 
 // Display Artist
-function displayArtistData(event) {
+async function displayArtistData(event) {
   event.preventDefault();
 
   // API setup
@@ -30,7 +30,7 @@ function displayArtistData(event) {
   var queryURL = `https://rest.bandsintown.com/artists/${input}/events?app_id=foo&date=${time}`;
 
   // Fetch Data
-  fetch(queryURL)
+  await fetch(queryURL)
     .then(function (response) {
       return response.json();
     })
@@ -129,16 +129,14 @@ function displayArtistData(event) {
 
 // Removing History
 function removeHistory(event) {
-    
-    event.preventDefault();
-    localStorage.clear("history");
-    artistHistory = [];
-    var dropdown = $("#dropdownList")
-    dropdown.empty();
-
+  event.preventDefault();
+  localStorage.clear("history");
+  artistHistory = [];
+  var dropdown = $("#dropdownList");
+  dropdown.empty();
 }
 
-// History On Load  
+// History On Load
 var dropdown = $("#dropdownList");
 var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
 existingHistory.forEach(function(Name) {

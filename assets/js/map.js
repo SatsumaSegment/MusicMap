@@ -19,19 +19,22 @@ async function initMap() {
 // Loop venues and set markers
 function setMarkers(event) {
   event.preventDefault();
-  // Delete any existing markers
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(null);
-  }
-  // Loop each item in the venues array
-  locateBand.forEach(function (item) {
-    // Create a new marker
-    let marker = new mkr({
-      map: map, // Add marker to map
-      position: { lat: item.lat, lng: item.lng }, // Set position of marker
+  // Wait for venue data before proceeding
+  displayArtistData(event).then(function () {
+    // Delete any existing markers
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
+    // Loop each item in the venues array
+    locateBand.forEach(function (item) {
+      // Create a new marker
+      let marker = new mkr({
+        map: map, // Add marker to map
+        position: { lat: item.lat, lng: item.lng }, // Set position of marker
+      });
+      markers.push(marker);
+      console.log(item.lat);
     });
-    markers.push(marker);
-    console.log(item.lat);
   });
 }
 
