@@ -57,7 +57,6 @@ body {
 .hero-text {
   position: relative;
   z-index: 2;
-
 }
 
 #hero-logo {
@@ -136,7 +135,7 @@ h3 {
   /* colour of bg when active */
   --bs-accordion-active-bg: orange;
   /* bg when closed */
-  --bs-accordion-btn-bg: rgb(97, 97, 97); 
+  --bs-accordion-btn-bg: rgb(97, 97, 97);
 }
 
 .accordion-body {
@@ -144,5 +143,5 @@ h3 {
 }
 
 .container {
---bs-gutter-y: 2.5rem;
+  --bs-gutter-y: 2.5rem;
 }
