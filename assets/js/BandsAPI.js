@@ -1,7 +1,12 @@
+// Global Variables
 var searchButton = $('#search-button');
-
 var locateBand = [];
 
+var existingHistory = localStorage.getItem("history")
+var artistHistory = [];
+artistHistory.push(existingHistory)
+
+// Display Artist
 function displayArtistData(event) {
 
     event.preventDefault();
@@ -59,6 +64,10 @@ function displayArtistData(event) {
         var artistName = data[0].artist.name
         var artistImage = data[0].artist.image_url
 
+        artistHistory.push(artistName)
+
+        localStorage.setItem("history", artistHistory) 
+
         // Image and Name
         var img = $(`<img src='${artistImage}' class="img-fluid rounded-start" alt="...">`)
         var artistH1 = $(`<h1 class="card-title">${artistName}</h1>`).attr("style", "text-align: center;")   
@@ -82,6 +91,7 @@ function displayArtistData(event) {
         })
 
         locateBand = [];
+
         // Venue Information
         data.forEach(function(ID) {
 
@@ -97,10 +107,11 @@ function displayArtistData(event) {
             }    
             locateBand.push(latLng)
         });
-        // console.log(locateBand);
     });
 };
 
 // Listen for click on search button
 searchButton.on('click', displayArtistData);
-// console.log(locateBand);
+
+// Listen for clicks on clear button
+
