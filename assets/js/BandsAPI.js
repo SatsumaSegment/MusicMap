@@ -2,7 +2,7 @@
 var searchButton = $("#search-button");
 var clearButton = $("#historyClear");
 var locateBand = [];
-var historyButton = $("#historyButton")
+var historyButton = $("#historyButton");
 
 // Display Artist
 async function displayArtistData(event) {
@@ -118,12 +118,14 @@ async function displayArtistData(event) {
       localStorage.removeItem("history");
       localStorage.setItem("history", JSON.stringify(existingHistory));
 
-        var dropdown = $("#dropdownList")
-        dropdown.empty();
-        existingHistory.forEach(function(Name) {
-            var createList = $(`<li><button class="dropdown-item" id="historyButton">${Name}</button></li>`)
-            dropdown.append(createList)
-        })
+      var dropdown = $("#dropdownList");
+      dropdown.empty();
+      existingHistory.forEach(function (Name) {
+        var createList = $(
+          `<li><button class="dropdown-item" id="historyButton">${Name}</button></li>`
+        );
+        dropdown.append(createList);
+      });
     });
 }
 
@@ -139,12 +141,12 @@ function removeHistory(event) {
 // History On Load
 var dropdown = $("#dropdownList");
 var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
-existingHistory.forEach(function(Name) {
-
-    var createList = $(`<li><button class="dropdown-item" id="historyButton">${Name}</button></li>`)
-    dropdown.append(createList)
-
-})
+existingHistory.forEach(function (Name) {
+  var createList = $(
+    `<li><button class="dropdown-item" id="historyButton">${Name}</button></li>`
+  );
+  dropdown.append(createList);
+});
 
 // Recall History
 function historyArtistData(event) {
@@ -173,9 +175,9 @@ function historyArtistData(event) {
 
   // Fetch Data
   fetch(queryURL)
-  .then(function (response) {
-    return response.json();
-  })
+    .then(function (response) {
+      return response.json();
+    })
     .then(function (data) {
       // Information and variables
       var imgDiv = $("#artistImg");
@@ -250,17 +252,12 @@ function historyArtistData(event) {
           lng: parseFloat(longitude),
         };
         locateBand.push(latLng);
-      });                      
-  });
+      });
+    });
 }
-
-// Listen for click on search button
-searchButton.on("click", displayArtistData);
 
 // Listen for clicks on clear button
 clearButton.on("click", removeHistory);
 
-// 
-historyButton.on("click", historyArtistData)
-
-
+//
+historyButton.on("click", historyArtistData);
