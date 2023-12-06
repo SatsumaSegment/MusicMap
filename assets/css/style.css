@@ -5,7 +5,7 @@
   margin-left: 10%;
   height: 80%;
   width: 50%;
-  border: 2px solid black;
+  border: 2px solid rgb(4, 190, 190);
   border-radius: 15px 15px;
   box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
 }
@@ -94,7 +94,7 @@ body {
   text-align: center;
   color: white;
   background-color: rgb(97, 97, 97);
-  border: 2px solid black;
+  border: 2px solid rgb(4, 190, 190);
   box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -117,12 +117,12 @@ h3 {
   /* text colour of opened accordion item*/
   --bs-accordion-color: white;
   /* bg of open accordion item */
-  --bs-accordion-bg: black;
+  --bs-accordion-bg: rgb(39, 38, 38);
   /* text colour of buttons */
   --bs-accordion-btn-color: white;
 
   /* outline */
-  --bs-accordion-border-color: black;
+  --bs-accordion-border-color: rgb(4, 190, 190);
 
   /* box shadow */
   box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
@@ -133,7 +133,7 @@ h3 {
   /* colour of text when open */
   --bs-accordion-active-color: black;
   /* colour of bg when active */
-  --bs-accordion-active-bg: orange;
+  --bs-accordion-active-bg: rgb(4, 190, 190);
   /* bg when closed */
   --bs-accordion-btn-bg: rgb(97, 97, 97);
 }
