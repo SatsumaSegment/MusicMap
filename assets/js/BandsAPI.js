@@ -3,6 +3,8 @@ var searchButton = $('#search-button');
 var clearButton = $('#historyClear')
 var locateBand = [];
 
+
+
 // Display Artist
 function displayArtistData(event) {
 
@@ -114,8 +116,6 @@ function displayArtistData(event) {
             var createList = $(`<li><a class="dropdown-item" data-name=${Name}>${Name}</a></li>`)
             dropdown.append(createList)
         })
-
-        
     });
 };
 
@@ -125,10 +125,20 @@ function removeHistory(event) {
     event.preventDefault();
     localStorage.clear("history");
     artistHistory = [];
+    var dropdown = $("#dropdownList")
+    dropdown.empty();
 
 }
 
+// History On Load  
+var dropdown = $("#dropdownList");
+var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
+existingHistory.forEach(function(Name) {
 
+    var createList = $(`<li><a class="dropdown-item" data-name=${Name}>${Name}</a></li>`)
+    dropdown.append(createList)
+
+})
 
 // Listen for click on search button
 searchButton.on('click', displayArtistData);
