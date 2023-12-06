@@ -145,3 +145,10 @@ h3 {
 .container {
   --bs-gutter-y: 2.5rem;
 }
+
+/* search button styles */
+.btn-outline-success {
+--bs-btn-color: rgb(4, 190, 190);
+--bs-btn-border-color: rgb(4, 190, 190);
+--bs-btn-hover-bg: rgb(4, 190, 190);
+}
