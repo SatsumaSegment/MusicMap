@@ -105,9 +105,11 @@ function displayArtistData(event) {
         // Add History
         var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
         existingHistory.push(artistName)
+        localStorage.removeItem("history");
         localStorage.setItem("history", JSON.stringify(existingHistory))
 
         var dropdown = $("#dropdownList")
+        dropdown.empty();
         existingHistory.forEach(function(Name) {
             var createList = $(`<li><a class="dropdown-item" data-name=${Name}>${Name}</a></li>`)
             dropdown.append(createList)
