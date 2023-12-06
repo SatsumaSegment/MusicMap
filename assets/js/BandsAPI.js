@@ -142,17 +142,18 @@ function removeHistory(event) {
 var dropdown = $("#dropdownList");
 var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
 existingHistory.forEach(function (Name) {
-  var createList = $(`<li><button class="dropdown-item" id="historyButton">${Name}</button></li>`);
+  var createList = $(
+    `<li><button class="dropdown-item" id="historyButton">${Name}</button></li>`
+  );
   dropdown.append(createList);
 });
 
 // Recall History
-function historyArtistData(event) {
-  
+async function historyArtistData(event) {
   event.preventDefault();
 
   // API setup
-  var input = document.getElementById("historyButton").textContent
+  var input = document.getElementById("historyButton").textContent;
 
   // Checkboxes
   var pastC = $("#checkbox-1");
@@ -173,7 +174,7 @@ function historyArtistData(event) {
   var queryURL = `https://rest.bandsintown.com/artists/${input}/events?app_id=foo&date=${time}`;
 
   // Fetch Data
-  fetch(queryURL)
+  await fetch(queryURL)
     .then(function (response) {
       return response.json();
     })
@@ -252,8 +253,6 @@ function historyArtistData(event) {
         };
         locateBand.push(latLng);
       });
-
-      
     });
 }
 
@@ -261,4 +260,4 @@ function historyArtistData(event) {
 clearButton.on("click", removeHistory);
 
 // Listen for clicks on history button
-historyButton.on("click", historyArtistData);
+// historyButton.on("click", historyArtistData);
