@@ -121,12 +121,14 @@ async function displayArtistData(event) {
       var dropdown = $("#dropdownList");
       dropdown.empty();
       existingHistory.forEach(function (Name) {
-        
-        var listEl = $("<li>")
-        var buttonEl = $('<button class="dropdown-item" id="historyButton"></button>').attr("data-name", Name.toString()).text(Name)
-        listEl.append(buttonEl)
+        var listEl = $("<li>");
+        var buttonEl = $(
+          '<button class="dropdown-item" id="historyButton"></button>'
+        )
+          .attr("data-name", Name.toString())
+          .text(Name);
+        listEl.append(buttonEl);
         dropdown.append(listEl);
-
       });
     });
 }
@@ -144,21 +146,20 @@ function removeHistory(event) {
 var dropdown = $("#dropdownList");
 var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
 existingHistory.forEach(function (Name) {
-
-  var listEl = $("<li>")
-  var buttonEl = $('<button class="dropdown-item" id="historyButton"></button>').attr("data-name", Name.toString()).text(Name)
-  listEl.append(buttonEl)
+  var listEl = $("<li>");
+  var buttonEl = $('<button class="dropdown-item" id="historyButton"></button>')
+    .attr("data-name", Name.toString())
+    .text(Name);
+  listEl.append(buttonEl);
   dropdown.append(listEl);
-
 });
 
 // Recall History
-function historyArtistData(event) {
-  
+async function historyArtistData(event) {
   event.preventDefault();
 
   // API setup
-  var input = event.target.textContent
+  var input = event.target.textContent;
 
   // Checkboxes
   var pastC = $("#checkbox-1");
@@ -179,7 +180,7 @@ function historyArtistData(event) {
   var queryURL = `https://rest.bandsintown.com/artists/${input}/events?app_id=foo&date=${time}`;
 
   // Fetch Data
-  fetch(queryURL)
+  await fetch(queryURL)
     .then(function (response) {
       return response.json();
     })
@@ -258,8 +259,6 @@ function historyArtistData(event) {
         };
         locateBand.push(latLng);
       });
-
-      
     });
 }
 
@@ -267,4 +266,4 @@ function historyArtistData(event) {
 clearButton.on("click", removeHistory);
 
 // Listen for clicks on history button
-historyButton.on("click", historyArtistData);
+// historyButton.on("click", historyArtistData);
