@@ -106,7 +106,6 @@ async function displayArtistData(event) {
         var lng = venue.longitude;
         var loc = venue.location;
         var name = venue.name;
-        var artName = ID.artist.name;
         var latLng = {
           latitude: parseFloat(lat),
           longitude: parseFloat(lng),
@@ -114,7 +113,7 @@ async function displayArtistData(event) {
           location: loc,
           venueName: name,
           startTime: srtTime,
-          artist: artName
+          artist: input
         };
         locateBand.push(latLng);
       });
