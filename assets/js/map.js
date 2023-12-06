@@ -17,57 +17,54 @@ async function initMap() {
 }
 
 // Loop venues and set markers
-function setMarkers(event) {
+function setMarkers(event, s) {
   event.preventDefault();
-  // Wait for venue data before proceeding
-  displayArtistData(event).then(function () {
-    // Delete any existing markers
-    for (var i = 0; i < markers.length; i++) {
-      markers[i].setMap(null);
-    }
-    // Loop each item in the venues array
-    locateBand.forEach(function (item) {
-      var contentString = 
-      `<div class="dark"><p><strong>${item.artist}</strong> is performing at</p>
-      <p><strong>Venue</strong>: ${item.venueName} at,</p>
-      <p><strong>Start Time</strong>: ${item.startTime}</p>
-      <p><strong>Address</strong>: ${item.street}</p>
-      <p><strong>Location</strong>: ${item.location}</p>
-      </div>`
-      // Create a new marker
-      let marker = new mkr({
-        map: map, // Add marker to map
-        position: { lat: item.latitude, lng: item.longitude }, // Set position of marker
+
+  if (s === 0) {
+    // Wait for venue data before proceeding
+    displayArtistData(event).then(function () {
+      // Delete any existing markers
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+      // Loop each item in the venues array
+      locateBand.forEach(function (item) {
+        // Create a new marker
+        let marker = new mkr({
+          map: map, // Add marker to map
+          position: { lat: item.lat, lng: item.lng }, // Set position of marker
+        });
+        markers.push(marker);
+        console.log(item.lat);
       });
-      markers.push(marker);
-
-      const infowindow = new google.maps.InfoWindow({
-        content: contentString,
-        maxWidth: 200
     });
-
-    marker.addListener('click', function () {
-      closeOtherInfo();
-      infowindow.open(marker.get('map'), marker);
-      InforObj[0] = infowindow;
-  });
+  } else if (1) {
+    historyArtistData(event).then(function () {
+      // Delete any existing markers
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+      // Loop each item in the venues array
+      locateBand.forEach(function (item) {
+        // Create a new marker
+        let marker = new mkr({
+          map: map, // Add marker to map
+          position: { lat: item.lat, lng: item.lng }, // Set position of marker
+        });
+        markers.push(marker);
+        console.log(item.lat);
+      });
     });
-  });
-  
-}
-
-function closeOtherInfo() {
-  if (InforObj.length > 0) {
-      /* detach the info-window from the marker ... undocumented in the API docs */
-      InforObj[0].set("marker", null);
-      /* and close it */
-      InforObj[0].close();
-      /* blank the array */
-      InforObj.length = 0;
   }
 }
 
 initMap();
 
 // Listen for search button click
-searchButton.on("click", setMarkers);
+searchButton.on("click", function (event) {
+  setMarkers(event, 0);
+});
+
+historyButton.on("click", function (event) {
+  setMarkers(event, 1);
+});
