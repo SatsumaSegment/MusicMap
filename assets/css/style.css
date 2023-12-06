@@ -9,11 +9,11 @@
   border-radius: 15px 15px;
   box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
 }
-  
+
 /* Normalize the body */
 html,
 body {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   color: white;
   background-color: rgb(51, 51, 51);
   height: 100%;
@@ -23,17 +23,16 @@ body {
 
 /* Font types */
 .logo-font {
-  font-family: 'Fredoka', sans-serif;
+  font-family: "Fredoka", sans-serif;
 }
 
 .accent-font {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .main-font {
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
 }
-
 
 /* Styling for the navbar */
 .navbar {
@@ -110,7 +109,7 @@ body {
 
 /* Styling for the band name */
 h3 {
-    margin-top: 25%;
+  margin-top: 25%;
 }
 
 /* FAQ Styling */
@@ -118,5 +117,5 @@ h3 {
   --bs-accordion-color: white;
   --bs-accordion-bg: rgb(97, 97, 97);
   --bs-accordion-btn-color: white;
-    box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
 }
