@@ -3,6 +3,8 @@ var searchButton = $("#search-button");
 var clearButton = $("#historyClear");
 var locateBand = [];
 
+
+
 // Display Artist
 function displayArtistData(event) {
   event.preventDefault();
@@ -117,23 +119,35 @@ function displayArtistData(event) {
       localStorage.removeItem("history");
       localStorage.setItem("history", JSON.stringify(existingHistory));
 
-      var dropdown = $("#dropdownList");
-      dropdown.empty();
-      existingHistory.forEach(function (Name) {
-        var createList = $(
-          `<li><a class="dropdown-item" data-name=${Name}>${Name}</a></li>`
-        );
-        dropdown.append(createList);
-      });
+        var dropdown = $("#dropdownList")
+        dropdown.empty();
+        existingHistory.forEach(function(Name) {
+            var createList = $(`<li><a class="dropdown-item" data-name=${Name}>${Name}</a></li>`)
+            dropdown.append(createList)
+        })
     });
 }
 
 // Removing History
 function removeHistory(event) {
-  event.preventDefault();
-  localStorage.clear("history");
-  artistHistory = [];
+    
+    event.preventDefault();
+    localStorage.clear("history");
+    artistHistory = [];
+    var dropdown = $("#dropdownList")
+    dropdown.empty();
+
 }
+
+// History On Load  
+var dropdown = $("#dropdownList");
+var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
+existingHistory.forEach(function(Name) {
+
+    var createList = $(`<li><a class="dropdown-item" data-name=${Name}>${Name}</a></li>`)
+    dropdown.append(createList)
+
+})
 
 // Listen for click on search button
 searchButton.on("click", displayArtistData);
