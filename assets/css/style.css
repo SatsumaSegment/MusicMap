@@ -113,5 +113,10 @@ h3 {
     margin-top: 25%;
 }
 
-
-
+/* FAQ Styling */
+.accordion {
+  --bs-accordion-color: white;
+  --bs-accordion-bg: rgb(97, 97, 97);
+  --bs-accordion-btn-color: white;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
+}
