@@ -1,7 +1,7 @@
-var map;
-var mkr = 0; // Global placeholder for the Marker constructor
-var InforObj = [];
-var markers = []; // Arry of markers on map
+let map;
+let mkr = 0; // Global placeholder for the Marker constructor
+
+let markers = []; // Arry of markers on map
 
 // Use async to make sure google maps library is loaded before completing function
 async function initMap() {
