@@ -114,7 +114,13 @@ async function displayArtistData(event) {
 
       // Add History
       var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
+
+      if (existingHistory.length > 4) {
+        existingHistory.splice(0, 1);
+      }
+
       existingHistory.push(artistName);
+
       localStorage.removeItem("history");
       localStorage.setItem("history", JSON.stringify(existingHistory));
 
