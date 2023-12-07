@@ -1,7 +1,7 @@
-let map;
-let mkr = 0; // Global placeholder for the Marker constructor
-
-let markers = []; // Arry of markers on map
+var map;
+var mkr = 0; // Global placeholder for the Marker constructor
+var InforObj = [];
+var markers = []; // Arry of markers on map
 
 // Use async to make sure google maps library is loaded before completing function
 async function initMap() {
@@ -29,13 +29,27 @@ function setMarkers(event, s) {
       }
       // Loop each item in the venues array
       locateBand.forEach(function (item) {
-        // Create a new marker
+        var contentString = `<div class="dark"><p><strong>${item.artist}</strong> is performing at</p>
+        <p><strong>Venue</strong>: ${item.venueName} at,</p>
+        <p><strong>Start Time</strong>: ${item.startTime}</p>
+        <p><strong>Address</strong>: ${item.street}</p>
+        <p><strong>Location</strong>: ${item.location}</p>
+        </div>`; // Create a new marker
         let marker = new mkr({
           map: map, // Add marker to map
-          position: { lat: item.lat, lng: item.lng }, // Set position of marker
+          position: { lat: item.latitude, lng: item.longitude }, // Set position of marker
         });
         markers.push(marker);
-        console.log(item.lat);
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: 200,
+        });
+
+        marker.addListener("click", function () {
+          closeOtherInfo();
+          infowindow.open(marker.get("map"), marker);
+          InforObj[0] = infowindow;
+        });
       });
     });
   } else if (1) {
@@ -46,15 +60,36 @@ function setMarkers(event, s) {
       }
       // Loop each item in the venues array
       locateBand.forEach(function (item) {
+        var contentString = `<div><h1 style="color: blue;">${item.location}</h1></div>`;
         // Create a new marker
         let marker = new mkr({
           map: map, // Add marker to map
-          position: { lat: item.lat, lng: item.lng }, // Set position of marker
+          position: { lat: item.latitude, lng: item.longitude }, // Set position of marker
         });
         markers.push(marker);
-        console.log(item.lat);
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: 200,
+        });
+
+        marker.addListener("click", function () {
+          closeOtherInfo();
+          infowindow.open(marker.get("map"), marker);
+          InforObj[0] = infowindow;
+        });
       });
     });
+  }
+}
+
+function closeOtherInfo() {
+  if (InforObj.length > 0) {
+    /* detach the info-window from the marker ... undocumented in the API docs */
+    InforObj[0].set("marker", null);
+    /* and close it */
+    InforObj[0].close();
+    /* blank the array */
+    InforObj.length = 0;
   }
 }
 
