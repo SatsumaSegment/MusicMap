@@ -11,7 +11,7 @@ async function initMap() {
   // Create a new map object
   map = new Map(document.getElementById("map"), {
     center: { lat: 52.3555, lng: 1.1743 },
-    zoom: 6,
+    zoom: 2,
   });
   mkr = Marker; // set global variable to Markers library
 }
