@@ -99,6 +99,8 @@ async function displayArtistData(event) {
 
       // Venue Information
       data.forEach(function (ID) {
+
+        console.log(ID.lineup[0])
         // Venue Location
         var srtTime = ID.starts_at
         var venue = ID.venue;
@@ -107,7 +109,7 @@ async function displayArtistData(event) {
         var lng = venue.longitude;
         var loc = venue.location;
         var name = venue.name;
-        // var artName = ID.artist.name;;
+        var artName = ID.lineup[0];
         var latLng = {
           latitude: parseFloat(lat),
           longitude: parseFloat(lng),
@@ -115,7 +117,7 @@ async function displayArtistData(event) {
           location: loc,
           venueName: name,
           startTime: srtTime,
-          artist: input
+          artist: artName
         };
         locateBand.push(latLng);
       });
@@ -269,7 +271,7 @@ async function historyArtistData(event) {
         var lng = venue.longitude;
         var loc = venue.location;
         var name = venue.name;
-        // var artName = ID.artist.name;;
+        var artName = ID.lineup[0];
         var latLng = {
           latitude: parseFloat(lat),
           longitude: parseFloat(lng),
@@ -277,7 +279,7 @@ async function historyArtistData(event) {
           location: loc,
           venueName: name,
           startTime: srtTime,
-          artist: input
+          artist: artName
         };
         locateBand.push(latLng);
       });
