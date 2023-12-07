@@ -23,9 +23,8 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>MusicMap</title>
 
-    <!--Map-->
+    <!--Google Map-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!-- <script type="module" src="./assets/js/map.js"></script> -->
   </head>
 
   <body>
@@ -72,7 +71,7 @@
     </nav>
 
     <!-- Description Jumbotron -->
-    <div class="text-center p-5 bg-primary text-white rounded-bottom mt-5 hero">
+    <section class="text-center p-5 bg-primary text-white rounded-bottom mt-5 hero">
       <img
         id="hero-logo"
         src="./assets/img/MusicMap_logo_clear.png"
@@ -89,7 +88,7 @@
         versatile tool for users to navigate through both historical and
         upcoming concerts.
       </p>
-    </div>
+    </section>
 
     <!-- Search Bar -->
     <section class="container search-bar">
@@ -99,7 +98,7 @@
             <input
               class="form-control"
               type="search"
-              placeholder="Search a Band..."
+              placeholder="Search for an Artist or a Band..."
               aria-label="Search"
               id="search-input"
             />
@@ -166,7 +165,7 @@
       <div id="map"></div>
 
       <!-- Display Artist Information -->
-      <div class="card mb-3">
+      <article class="card mb-3">
         <div class="row g-0" id="results">
           <div class="col-md-4" id="artistImg"></div>
           <div class="row accent-font">
@@ -174,11 +173,11 @@
             <div class="d-grid gap-2" id="artistButtons"></div>
           </div>
         </div>
-      </div>
+      </article>
     </section>
 
     <!-- FAQ -->
-    <div class="container" id="faq">
+    <article class="container" id="faq">
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header">
@@ -341,7 +340,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </article>
 
     <!-- Break -->
     <br />

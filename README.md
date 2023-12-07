@@ -26,11 +26,16 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
     ![alt text](assets/images/screenshot.png)
     ```
 
-## Credits
+## Credits/References
 
 * Google Map Markers: https://github.com/googlemaps/js-markerclusterer
 
 * Maps on github: https://stackoverflow.com/questions/45117542/does-google-maps-api-work-on-github-pages
+
+* Accessibilty checklist for FE developers: https://holistica11y.com/accessibility-checklist-for-front-end-developers/
+    * * Bootstrap built in accessibility: https://getbootstrap.com/docs/4.0/getting-started/accessibility/#:~:text=The%20overall%20accessibility%20of%20any,and%20scripting%20they've%20included.
+    
+
 
 List your collaborators, if any, with links to their GitHub profiles.
 Third parties! ! at require attribution, list the creators with links to their primary web presence in this section.
