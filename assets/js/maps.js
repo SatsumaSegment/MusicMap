@@ -35,11 +35,17 @@ function addMarkers() {
   console.log(locateBand);
   // Loop each item in the venues array
   locateBand.forEach(function (item) {
-    var contentString = `<div class="dark"><p><strong>${item.artist}</strong> is performing at</p>
-      <p><strong>Venue</strong>: ${item.venueName} at,</p>
-      <p><strong>Start Time</strong>: ${item.startTime}</p>
-      <p><strong>Address</strong>: ${item.street}</p>
-      <p><strong>Location</strong>: ${item.location}</p>
+    var date = item.startTime.split("T")[0];
+    var time = item.startTime.split("T")[1];
+    var contentString = `<div class="popup text-center"><h1><strong>${item.artist}</strong></h1>
+      <h5>is performing at</h5>
+      <h3 class="mt-0"><strong>${item.venueName}</strong></h3>
+      <h5>on</h5>
+      <h3 class="mt-0"><strong>${date}</strong></h3><h5> at </h5><h3 class="mt-0"><strong>${time}</strong></h3>
+      <div class"row">
+      <h4 style="text-align: left;"><strong>Address</strong>:</h4> <h5>${item.street}</h5>
+      </div>
+      <h4 style="text-align: left;"><strong>Location</strong>:</h4> <h5>${item.location}</h5>
       </div>`; // Create a new marker
     let marker = new mkr({
       map: map, // Add marker to map
@@ -48,7 +54,7 @@ function addMarkers() {
     markers.push(marker);
     const infowindow = new google.maps.InfoWindow({
       content: contentString,
-      maxWidth: 200,
+      maxWidth: 400,
     });
 
     marker.addListener("click", function () {
