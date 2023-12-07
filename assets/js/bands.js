@@ -51,7 +51,7 @@ async function displayArtistData(event, hist) {
       if (response.status === 404) {
         console.log("404 - Not Found :(");
         var noImg = $(
-          `<img src='https://placehold.jp/ffffff/000000/720x722.png?text=No%20Upcoming%20Events%20With%20This%20Artist' class="img-fluid rounded-start" alt="...">`
+          `<img src='./assets/img/icons8-sad-face.gif' width="500" class="img-fluid rounded-start" alt="Gif of a crying face">`
         );
         var noResults = $(
           `<h3 style="text-align: center;" class="align-middle">Sorry, Artist Cannot Be Found</h3>`
@@ -90,7 +90,7 @@ async function displayArtistData(event, hist) {
             nameDiv.append(artistH1);
             imgDiv.append(
               $(
-                `<img src='${artistImage}' class="img-fluid rounded-start" alt="${artistName}">`
+                `<img src='${artistImage}' class="img-fluid rounded-start" alt="Image of ${artistName}">`
               )
             );
             btnDiv.append(noGig);
@@ -110,7 +110,7 @@ async function displayArtistData(event, hist) {
 
       // Image and Name
       var img = $(
-        `<img src='${artistImage}' class="img-fluid rounded-start" alt="${artistName}">`
+        `<img src='${artistImage}' class="img-fluid rounded-start" alt="Image of ${artistName}">`
       );
       var artistH1 = $(`<h1 class="card-title">${artistName}</h1>`).attr(
         "style",
