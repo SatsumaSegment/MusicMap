@@ -39,11 +39,6 @@ async function displayArtistData(event, hist) {
   var nameDiv = $("#artistName");
   var btnDiv = $("#artistButtons");
 
-  // Empty any old contents
-  imgDiv.empty();
-  nameDiv.empty();
-  btnDiv.empty();
-
   // Fetch Data
   await fetch(queryURL)
     .then(function (response) {
@@ -56,6 +51,11 @@ async function displayArtistData(event, hist) {
         var noResults = $(
           `<h3 style="text-align: center;" class="align-middle">Sorry, Artist Cannot Be Found</h3>`
         );
+        // Empty any old contents
+        imgDiv.empty();
+        nameDiv.empty();
+        btnDiv.empty();
+        // Populate the elements
         nameDiv.append(noResults);
         imgDiv.append(noImg);
         return;
@@ -84,6 +84,11 @@ async function displayArtistData(event, hist) {
               var noResults = $(
                 `<h3 style="text-align: center;" class="align-middle">Sorry, Artist Cannot Be Found</h3>`
               );
+              // Empty any old contents
+              imgDiv.empty();
+              nameDiv.empty();
+              btnDiv.empty();
+              // Populate the elements
               nameDiv.append(noResults);
               imgDiv.append(noImg);
               return;
@@ -99,6 +104,12 @@ async function displayArtistData(event, hist) {
               "style",
               "text-align: center;"
             );
+            // Empty any old contents
+            imgDiv.empty();
+            nameDiv.empty();
+            btnDiv.empty();
+
+            // Populate the elements
             nameDiv.append(artistH1);
             imgDiv.append(
               $(
@@ -129,6 +140,12 @@ async function displayArtistData(event, hist) {
         "text-align: center;"
       );
 
+      // Empty any old contents
+      imgDiv.empty();
+      nameDiv.empty();
+      btnDiv.empty();
+
+      // Populate the elements
       imgDiv.append(img);
       nameDiv.append(artistH1);
 
@@ -201,10 +218,9 @@ function addHistory(name) {
 
   var artistName = name;
 
-  if (!(existingHistory.includes(artistName))){
+  if (!existingHistory.includes(artistName)) {
     existingHistory.push(artistName);
   }
-  
 
   localStorage.removeItem("history");
   localStorage.setItem("history", JSON.stringify(existingHistory));
