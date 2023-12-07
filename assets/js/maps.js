@@ -10,7 +10,7 @@ async function initMap() {
 
   // Create a new map object
   map = new Map(document.getElementById("map"), {
-    center: { lat: 52.3555, lng: 1.1743 },
+    center: { lat: 5.0, lng: 34.0 },
     zoom: 2,
   });
   mkr = Marker; // set global variable to Markers library
