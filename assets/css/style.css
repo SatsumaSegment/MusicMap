@@ -213,10 +213,11 @@ h3 {
     margin: auto;
     margin-top: 2%;
     width: 60%;
-    height: 20%;
+    height: 30%;
     z-index: 2;
     padding: 0;
     text-align: left;
+    padding: 2%;
   }
 
   .card img {
@@ -229,8 +230,8 @@ h3 {
 
   #artistInfo {
     position: absolute;
-    width: 50%;
-    margin-left: 45%;
+    width: 45%;
+    margin-left: 40%;
   }
 
   /* Search button position */
