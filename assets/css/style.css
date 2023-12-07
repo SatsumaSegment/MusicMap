@@ -10,8 +10,12 @@
   box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
 }
 
-.dark {
-  background-color: rgb(51, 51, 51);
+.popup {
+  margin: auto;
+  margin-bottom: 0;
+  padding: 2%;
+  width: 100%;
+  color: black;
 }
 
 /* Normalize the body */
