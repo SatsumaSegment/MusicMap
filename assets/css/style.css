@@ -100,6 +100,19 @@ body {
   background-color: rgb(97, 97, 97);
   border: 2px solid rgb(4, 190, 190);
   box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px rgb(51, 51, 51);
+}
+
+.card a {
+  border: 1px solid black;
+  border-radius: 15px;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Center the band image and adjust the size */
@@ -107,8 +120,6 @@ body {
   margin: auto;
   margin-left: 5%;
   width: 80%;
-  border: 2px solid black;
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Styling for the band name */
@@ -152,7 +163,7 @@ h3 {
 
 /* search button styles */
 .btn-outline-success {
---bs-btn-color: rgb(4, 190, 190);
---bs-btn-border-color: rgb(4, 190, 190);
---bs-btn-hover-bg: rgb(4, 190, 190);
+  --bs-btn-color: rgb(4, 190, 190);
+  --bs-btn-border-color: rgb(4, 190, 190);
+  --bs-btn-hover-bg: rgb(4, 190, 190);
 }
