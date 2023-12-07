@@ -85,6 +85,8 @@ async function displayArtistData(event) {
               )
             );
             btnDiv.append(noGig);
+            // Call addHistory, pass in artist's name so artists without upcoming gigs get added too
+            addHistory(artistName);
             return;
           });
         return;
@@ -156,29 +158,39 @@ async function displayArtistData(event) {
       });
 
       // Add History
-      var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
+      function addHistory(n) {
+        var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
 
-      if (existingHistory.length > 4) {
-        existingHistory.splice(0, 1);
+        if (existingHistory.length > 4) {
+          existingHistory.splice(0, 1);
+        }
+
+        // If band has no upcoming gigs, argument is passed to function and checked here
+        // to make sure the name gets added to history.
+        if (arguments.length > 0) {
+          artistName = n;
+        }
+
+        console.log(arguments.length);
+        existingHistory.push(artistName);
+
+        localStorage.removeItem("history");
+        localStorage.setItem("history", JSON.stringify(existingHistory));
+
+        var dropdown = $("#dropdownList");
+        dropdown.empty();
+        existingHistory.forEach(function (Name) {
+          var listEl = $("<li>");
+          var buttonEl = $(
+            '<button class="dropdown-item" id="historyButton"></button>'
+          )
+            .attr("data-name", Name.toString())
+            .text(Name);
+          listEl.append(buttonEl);
+          dropdown.append(listEl);
+        });
       }
-
-      existingHistory.push(artistName);
-
-      localStorage.removeItem("history");
-      localStorage.setItem("history", JSON.stringify(existingHistory));
-
-      var dropdown = $("#dropdownList");
-      dropdown.empty();
-      existingHistory.forEach(function (Name) {
-        var listEl = $("<li>");
-        var buttonEl = $(
-          '<button class="dropdown-item" id="historyButton"></button>'
-        )
-          .attr("data-name", Name.toString())
-          .text(Name);
-        listEl.append(buttonEl);
-        dropdown.append(listEl);
-      });
+      addHistory();
     });
 }
 
