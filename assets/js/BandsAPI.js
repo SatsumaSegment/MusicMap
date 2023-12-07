@@ -68,6 +68,7 @@ async function displayArtistData(event) {
           })
           .then(function (dta) {
             // Show band and tell user no upcoming gigs
+            locateBand = [];
             var noGig = $(
               `<h4 style="text-align: center;" class="align-middle">This Artist Has No Upcoming Events</h4>`
             );
