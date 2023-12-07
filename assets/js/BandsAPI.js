@@ -29,30 +29,63 @@ async function displayArtistData(event) {
   // API URL
   var queryURL = `https://rest.bandsintown.com/artists/${input}/events?app_id=foo&date=${time}`;
 
+  // Information and variables
+  var imgDiv = $("#artistImg");
+  var nameDiv = $("#artistName");
+  var btnDiv = $("#artistButtons");
+
+  imgDiv.empty();
+  nameDiv.empty();
+  btnDiv.empty();
+
   // Fetch Data
   await fetch(queryURL)
     .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      // Information and variables
-      var imgDiv = $("#artistImg");
-      var nameDiv = $("#artistName");
-      var btnDiv = $("#artistButtons");
-
-      imgDiv.empty();
-      nameDiv.empty();
-      btnDiv.empty();
-
-      if (data == "") {
+      if (response.status === 404) {
+        console.log("NOPE");
         var noImg = $(
           `<img src='https://placehold.jp/ffffff/000000/720x722.png?text=No%20Upcoming%20Events%20With%20This%20Artist' class="img-fluid rounded-start" alt="...">`
         );
         var noResults = $(
-          `<h3 style="text-align: center;" class="align-middle">Sorry Artist Cannot Be Found Or Has No Upcoming Events</h3>`
+          `<h3 style="text-align: center;" class="align-middle">Sorry, Artist Cannot Be Found</h3>`
         );
         nameDiv.append(noResults);
         imgDiv.append(noImg);
+        return;
+      } else {
+        return response.json();
+      }
+    })
+    .then(async function (data) {
+      // Check if data is returned
+      if (data == "") {
+        // Check if band has past gigs
+        await fetch(
+          `https://rest.bandsintown.com/artists/${input}/events?app_id=foo&date=Past`
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (dta) {
+            // Show band and tell user no upcoming gigs
+            var noGig = $(
+              `<h4 style="text-align: center;" class="align-middle">This Artist Has No Upcoming Events</h4>`
+            );
+            var artistName = dta[0].artist.name;
+            var artistImage = dta[0].artist.image_url;
+            var artistH1 = $(`<h1 class="card-title">${artistName}</h1>`).attr(
+              "style",
+              "text-align: center;"
+            );
+            nameDiv.append(artistH1);
+            imgDiv.append(
+              $(
+                `<img src='${artistImage}' class="img-fluid rounded-start" alt="...">`
+              )
+            );
+            btnDiv.append(noGig);
+            return;
+          });
         return;
       }
 
@@ -99,10 +132,9 @@ async function displayArtistData(event) {
 
       // Venue Information
       data.forEach(function (ID) {
-
-        console.log(ID.lineup[0])
+        console.log(ID.lineup[0]);
         // Venue Location
-        var srtTime = ID.starts_at
+        var srtTime = ID.starts_at;
         var venue = ID.venue;
         var strAd = venue.street_address;
         var lat = venue.latitude;
@@ -117,7 +149,7 @@ async function displayArtistData(event) {
           location: loc,
           venueName: name,
           startTime: srtTime,
-          artist: artName
+          artist: artName,
         };
         locateBand.push(latLng);
       });
@@ -264,7 +296,7 @@ async function historyArtistData(event) {
       // Venue Information
       data.forEach(function (ID) {
         // Venue Location
-        var srtTime = ID.starts_at
+        var srtTime = ID.starts_at;
         var venue = ID.venue;
         var strAd = venue.street_address;
         var lat = venue.latitude;
@@ -279,7 +311,7 @@ async function historyArtistData(event) {
           location: loc,
           venueName: name,
           startTime: srtTime,
-          artist: artName
+          artist: artName,
         };
         locateBand.push(latLng);
       });
