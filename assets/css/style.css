@@ -1,5 +1,6 @@
 /* Google Maps div */
 #map {
+  grid-area: map;
   margin: auto;
   margin-top: 0;
   margin-left: 10%;
@@ -68,7 +69,7 @@ body {
 .hero-text {
   position: relative;
   top: 2%;
-  font-size: larger;
+  font-size: 22px;
   z-index: 2;
 }
 
@@ -100,6 +101,7 @@ body {
 
 /* Styling for the band display card */
 .card {
+  grid-area: card;
   width: 28%;
   height: 80%;
   padding: 5%;
@@ -175,4 +177,61 @@ h3 {
   --bs-btn-color: rgb(4, 190, 190);
   --bs-btn-border-color: rgb(4, 190, 190);
   --bs-btn-hover-bg: rgb(4, 190, 190);
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1480px) {
+  body {
+    height: 100%;
+    display: block;
+  }
+
+  /* Hero Styling */
+  .hero-text {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  /* Map and card positioning */
+  .main {
+    display: block;
+  }
+
+  #map {
+    margin: auto;
+    top: 10%;
+    width: 85%;
+    height: 75%;
+    z-index: 1;
+  }
+
+  /* Position elements inside card */
+  .card {
+    position: absolute;
+    top: 72%;
+    left: 32.5%;
+    margin: auto;
+    margin-top: 2%;
+    width: 60%;
+    height: 20%;
+    z-index: 2;
+    padding: 0;
+    text-align: left;
+  }
+
+  .card img {
+    width: 35%;
+  }
+
+  #results {
+    margin: auto;
+  }
+
+  #artistInfo {
+    position: absolute;
+    width: 50%;
+    margin-left: 45%;
+  }
+
+  /* Search button position */
 }
