@@ -155,6 +155,12 @@ async function displayArtistData(event, hist) {
         var loc = venue.location;
         var name = venue.name;
         var artName = ID.lineup[0];
+
+        // Check street address exists (some cases it doesn't)
+        if (strAd == "") {
+          strAd = "No Address Available";
+        }
+
         var latLng = {
           latitude: parseFloat(lat),
           longitude: parseFloat(lng),
