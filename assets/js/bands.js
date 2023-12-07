@@ -76,6 +76,18 @@ async function displayArtistData(event, hist) {
             return response.json();
           })
           .then(function (dta) {
+            if (dta == "") {
+              console.log("Artist cannot be found");
+              var noImg = $(
+                `<img src='./assets/img/icons8-sad-face.gif' width="500" class="img-fluid rounded-start" alt="Gif of a crying face">`
+              );
+              var noResults = $(
+                `<h3 style="text-align: center;" class="align-middle">Sorry, Artist Cannot Be Found</h3>`
+              );
+              nameDiv.append(noResults);
+              imgDiv.append(noImg);
+              return;
+            }
             // Show band and tell user no upcoming gigs
             locateBand = [];
             var noGig = $(
@@ -189,7 +201,10 @@ function addHistory(name) {
 
   var artistName = name;
 
-  existingHistory.push(artistName);
+  if (!(existingHistory.includes(artistName))){
+    existingHistory.push(artistName);
+  }
+  
 
   localStorage.removeItem("history");
   localStorage.setItem("history", JSON.stringify(existingHistory));
