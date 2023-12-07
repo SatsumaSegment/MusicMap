@@ -34,7 +34,8 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 * Accessibilty checklist for FE developers: https://holistica11y.com/accessibility-checklist-for-front-end-developers/
     * * Bootstrap built in accessibility: https://getbootstrap.com/docs/4.0/getting-started/accessibility/#:~:text=The%20overall%20accessibility%20of%20any,and%20scripting%20they've%20included.
-    
+    * * Maps window: https://support.google.com/maps/answer/6396990?hl=en&co=GENIE.Platform%3DDesktop&oco=0
+
 
 
 List your collaborators, if any, with links to their GitHub profiles.
