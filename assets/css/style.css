@@ -475,8 +475,8 @@ h3 {
   }
 }
 
-@media only screen and (max-width: 620px) {
+/* @media only screen and (max-width: 620px) {
   body {
     display: none;
   }
-}
+} */
