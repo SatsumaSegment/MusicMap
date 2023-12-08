@@ -275,8 +275,10 @@ function removeHistory(event) {
   artistHistory = [];
   var dropdown = $("#dropdownList");
   dropdown.empty();
-
+  var ticketsElMain = $("#ticketContainer")
+  ticketsElMain.empty();
   noHistory();
+
 }
 
 async function historyArtistData(event) {
