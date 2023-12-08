@@ -3,6 +3,8 @@ var searchButton = $("#search-button");
 var clearButton = $("#historyClear");
 var locateBand = [];
 var historyButton = $("#dropdownList");
+var ticketContEl = $("#ticketContainer")
+var ticketH1El = $("#ticketH1")
 
 // Display Artist
 async function displayArtistData(event, hist) {
@@ -23,6 +25,8 @@ async function displayArtistData(event, hist) {
   // Validation for checkboxes - past, upcoming and all gigs
   if (pastC.is(":checked") && !upcomingC.is(":checked")) {
     var time = "Past";
+    ticketContEl.addClass("hidden")            
+    ticketH1El.addClass("hidden")
   } else if (upcomingC.is(":checked") && !pastC.is(":checked")) {
     var time = "Upcoming";
   } else if (upcomingC.is(":checked") && pastC.is(":checked")) {
@@ -192,13 +196,13 @@ async function displayArtistData(event, hist) {
         var artName = ID.lineup[0];
 
          // Ticket Cards        
-        var availableTickets = ID.offers[0].status
+        // var availableTickets = ID.offers[0].status
         var ticketsURL = ID.offers[0].url
         var ticketOffers = ID.offers
 
-        console.log(ticketOffers.length)
+        console.log(ticketOffers)
 
-        if (ticketOffers == "") {
+        if (ticketsURL == "") {
           ticketCont.addClass("hidden")
         } else {
           var venueDate = srtTime.split("T")[0];
