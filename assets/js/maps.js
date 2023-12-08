@@ -32,7 +32,6 @@ function addMarkers() {
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(null);
   }
-  console.log(locateBand);
   // Loop each item in the venues array
   locateBand.forEach(function (item) {
     // Check if it's past or future gig and change modal accordingly

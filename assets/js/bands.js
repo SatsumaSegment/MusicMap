@@ -44,7 +44,6 @@ async function displayArtistData(event, hist) {
     .then(function (response) {
       // If 404 - not found error is returned
       if (response.status === 404) {
-        console.log("404 - Not Found :(");
         var noImg = $(
           `<img src='./assets/img/icons8-sad-face.gif' width="500" class="img-fluid rounded-start" alt="Gif of a crying face">`
         );
@@ -77,7 +76,6 @@ async function displayArtistData(event, hist) {
           })
           .then(function (dta) {
             if (dta == "") {
-              console.log("Artist cannot be found");
               var noImg = $(
                 `<img src='./assets/img/icons8-sad-face.gif' width="500" class="img-fluid rounded-start" alt="Gif of a crying face">`
               );
@@ -174,7 +172,6 @@ async function displayArtistData(event, hist) {
 
       // Venue Information
       data.forEach(function (ID) {
-        console.log(ID.lineup[0]);
         // Venue Location
         var srtTime = ID.starts_at;
         var venue = ID.venue;
