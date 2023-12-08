@@ -36,17 +36,32 @@ body {
   margin: auto;
   overflow-y: auto;
   text-align: center;
+  border: 2px solid rgb(4, 190, 190);
+  border-radius: 15px 15px;
+  box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: rgb(4, 190, 190);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(97, 97, 97);
+  border: 1px solid black;
+  border-radius: 50px;
 }
 
 .hidden {
-  display: none
+  display: none;
 }
 
 #ticketH1 {
   text-align: center;
   position: absolute;
   left: 45%;
-  bottom: -85%
+  bottom: -85%;
 }
 
 /* Font types */
@@ -154,7 +169,7 @@ body {
 
 /* Tickets */
 #ticketsHere {
-  top: 50%
+  top: 50%;
 }
 #tickets {
   left: 10%;
@@ -278,8 +293,6 @@ h3 {
     content: "\a";
     white-space: pre;
   }
-
-
 }
 
 @media only screen and (max-width: 1200px) {
@@ -346,8 +359,6 @@ h3 {
     content: "\a";
     white-space: pre;
   }
-
-
 }
 
 @media only screen and (max-width: 800px) {
@@ -414,8 +425,6 @@ h3 {
     content: "\a";
     white-space: pre;
   }
-
-
 }
 
 @media only screen and (max-width: 620px) {
@@ -423,6 +432,3 @@ h3 {
     display: none;
   }
 }
-
-
-
