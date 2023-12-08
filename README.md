@@ -97,6 +97,20 @@ MusicMap is a web application designed to enhance the user's experience in explo
 
 Enjoy exploring the world of live music with MusicMap!
 
+## File Structure
+
+This project follows a straightforward file structure to help you navigate and contribute effectively. Below is an overview of the key directories and files:
+
+- **`/css`:** Contains the CSS stylesheets for the application.
+- **`/js`:** Includes JavaScript files, with specific functionalities organized accordingly.
+- **`/img`:** Houses image assets used in the application.
+- **`index.html`:** The main HTML file serving as the entry point to the MusicMap web application.
+- **`README.md`:** The file you are currently reading, providing essential information about the project.
+
+Feel free to explore these directories to understand the project structure better and make contributions more efficiently.
+
+![Screenshot of my site](assets/img/file_structure.png)
+
 
 ## Credits/References
 
