@@ -65,6 +65,8 @@ async function displayArtistData(event, hist) {
       }
     })
     .then(async function (data) {
+
+      console.log(data)
       // Check if data is returned
       if (data == "") {
         // If no data, check band's past to get information to return
@@ -179,6 +181,7 @@ async function displayArtistData(event, hist) {
         var srtTime = ID.starts_at;
         var venue = ID.venue;
         var strAd = venue.street_address;
+        var countryName = venue.country
         var lat = venue.latitude;
         var lng = venue.longitude;
         var loc = venue.location;
@@ -188,20 +191,26 @@ async function displayArtistData(event, hist) {
          // Ticket Cards        
         var availableTickets = ID.offers[0].status
         var ticketsURL = ID.offers[0].url
+        var ticketOffers = ID.offers
 
-        if (availableTickets != "available" || ticketsURL == "") {
+        console.log(availableTickets)
+
+        if (availableTickets != "available" || ticketsURL == "" || ticketOffers == "") {
           return;
         } else {
+          var venueDate = srtTime.split("T")[0];
+          var venueTime = srtTime.split("T")[1];
           var ticketsEl = $(`<div class="card text-center" id="tickets"></div>`)
           var ticketCont = $("#ticketContainer")
           var ticketHeader = $(`<div class="card-header">${name}</div>`)
           var ticketBody = $(`
           <div class="card-body" id="ticketsBody">
           <h5 class="card-title">${artName}</h5>
-          <p class="card-text"></p>
           <a href="${ticketsURL}" target="blank" class="btn btn-primary">You can buy tickets here</a>
+          <br></br>
+          <p class="card-text">PLAYING AT: ${loc}. ${countryName}</p>
         </div>`)
-          var ticketStart = $(`<div class="card-footer text-body-secondary">${srtTime}</div>`)
+          var ticketStart = $(`<div class="card-footer text-body-secondary">GOING LIVE ON: ${venueDate} AT ${venueTime}</div>`)
 
           ticketsEl.append(ticketHeader, ticketBody, ticketStart)
           ticketCont.append(ticketsEl)
@@ -228,8 +237,6 @@ async function displayArtistData(event, hist) {
       if (!hist) {
         addHistory(artistName);
       }
-
-      console.log(data)
     });
 }
 
