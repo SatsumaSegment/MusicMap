@@ -93,6 +93,11 @@ searchButton.on("click", function (event) {
 });
 
 historyButton.on("click", function (event) {
-  $("#search-input").val(event.target.textContent);
-  setMarkers(event, 1);
+  if (
+    event.target.textContent !=
+    JSON.parse(localStorage.getItem("history")).join("")
+  ) {
+    $("#search-input").val(event.target.textContent);
+    setMarkers(event, 1);
+  }
 });

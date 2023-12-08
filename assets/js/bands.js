@@ -39,11 +39,6 @@ async function displayArtistData(event, hist) {
   var nameDiv = $("#artistName");
   var btnDiv = $("#artistButtons");
 
-  // Empty any old contents
-  imgDiv.empty();
-  nameDiv.empty();
-  btnDiv.empty();
-
   // Fetch Data
   await fetch(queryURL)
     .then(function (response) {
@@ -56,6 +51,11 @@ async function displayArtistData(event, hist) {
         var noResults = $(
           `<h3 style="text-align: center;" class="align-middle">Sorry, Artist Cannot Be Found</h3>`
         );
+        // Empty any old contents
+        imgDiv.empty();
+        nameDiv.empty();
+        btnDiv.empty();
+        // Populate the elements
         nameDiv.append(noResults);
         imgDiv.append(noImg);
         return;
@@ -84,6 +84,11 @@ async function displayArtistData(event, hist) {
               var noResults = $(
                 `<h3 style="text-align: center;" class="align-middle">Sorry, Artist Cannot Be Found</h3>`
               );
+              // Empty any old contents
+              imgDiv.empty();
+              nameDiv.empty();
+              btnDiv.empty();
+              // Populate the elements
               nameDiv.append(noResults);
               imgDiv.append(noImg);
               return;
@@ -99,6 +104,12 @@ async function displayArtistData(event, hist) {
               "style",
               "text-align: center;"
             );
+            // Empty any old contents
+            imgDiv.empty();
+            nameDiv.empty();
+            btnDiv.empty();
+
+            // Populate the elements
             nameDiv.append(artistH1);
             imgDiv.append(
               $(
@@ -129,6 +140,12 @@ async function displayArtistData(event, hist) {
         "text-align: center;"
       );
 
+      // Empty any old contents
+      imgDiv.empty();
+      nameDiv.empty();
+      btnDiv.empty();
+
+      // Populate the elements
       imgDiv.append(img);
       nameDiv.append(artistH1);
 
@@ -147,7 +164,7 @@ async function displayArtistData(event, hist) {
         var linkURL = LK.url;
 
         var linkButton = $(
-          `<a href="${linkURL}" class="btn btn-primary" type="button">${linkName}</a>`
+          `<a href="${linkURL}" class="btn btn-primary" type="button" target="_blank">${linkName}</a>`
         );
 
         btnDiv.append(linkButton);
@@ -192,6 +209,8 @@ async function displayArtistData(event, hist) {
 }
 
 // Add History
+
+
 function addHistory(name) {
   var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
 
@@ -201,10 +220,9 @@ function addHistory(name) {
 
   var artistName = name;
 
-  if (!(existingHistory.includes(artistName))){
+  if (!existingHistory.includes(artistName)) {
     existingHistory.push(artistName);
   }
-  
 
   localStorage.removeItem("history");
   localStorage.setItem("history", JSON.stringify(existingHistory));
@@ -223,6 +241,8 @@ function addHistory(name) {
   });
 }
 
+
+
 // Removing History
 function removeHistory(event) {
   event.preventDefault();
@@ -230,6 +250,8 @@ function removeHistory(event) {
   artistHistory = [];
   var dropdown = $("#dropdownList");
   dropdown.empty();
+
+  noHistory();
 }
 
 async function historyArtistData(event) {
@@ -248,6 +270,19 @@ existingHistory.forEach(function (Name) {
   listEl.append(buttonEl);
   dropdown.append(listEl);
 });
+
+// No History Placeholder
+window.onload = noHistory
+
+function noHistory() {
+  if (localStorage.getItem("history") === null) {
+    var dropdown = $("#dropdownList");
+    var listEl = $("<li>");
+    var buttonEl = $('<button class="dropdown-item" id="historyButton">No History Available</button>')
+    listEl.append(buttonEl)
+    dropdown.append(listEl)
+  }
+}
 
 // Listen for clicks on clear button
 clearButton.on("click", removeHistory);
