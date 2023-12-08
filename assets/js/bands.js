@@ -164,7 +164,7 @@ async function displayArtistData(event, hist) {
         var linkURL = LK.url;
 
         var linkButton = $(
-          `<a href="${linkURL}" class="btn btn-primary" type="button">${linkName}</a>`
+          `<a href="${linkURL}" class="btn btn-primary" type="button" target="_blank">${linkName}</a>`
         );
 
         btnDiv.append(linkButton);
