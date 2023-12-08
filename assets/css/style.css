@@ -241,6 +241,14 @@ h3 {
     width: 100%;
   }
 
+  /* Search button */
+  #search-button {
+    position: absolute;
+    top: 70%;
+    right: 8%;
+    z-index: 5;
+  }
+
   /* Map and card positioning */
   .main {
     display: block;
@@ -248,7 +256,7 @@ h3 {
 
   #map {
     margin: auto;
-    top: 10%;
+    top: 30%;
     width: 85%;
     height: 75%;
     z-index: 1;
@@ -258,11 +266,11 @@ h3 {
   /* Position elements inside card */
   .card {
     position: absolute;
-    top: 72%;
-    left: 32.5%;
+    top: 88%;
+    left: 7%;
     margin: auto;
     margin-top: 2%;
-    width: 60%;
+    width: 85%;
     height: 30%;
     z-index: 2;
     padding: 0;
@@ -271,18 +279,19 @@ h3 {
   }
 
   .card img {
-    width: 35%;
+    width: 25%;
   }
 
   #results {
     margin: auto;
+    width: 100%;
   }
 
   #artistInfo {
     position: absolute;
-    top: 0;
+    top: 10%;
+    left: 40%;
     width: 45%;
-    margin-left: 40%;
   }
 
   #artistCard {
@@ -292,6 +301,23 @@ h3 {
   #artistCard::after {
     content: "\a";
     white-space: pre;
+  }
+
+  #ticketContainer {
+    margin-top: 10%;
+    height: 60%;
+  }
+
+  #tickets {
+    top: 10%;
+    position: relative;
+    margin: auto;
+    margin-bottom: 5%;
+    margin-left: 0%;
+  }
+
+  #faq {
+    margin-top: 15%;
   }
 }
 
@@ -314,7 +340,7 @@ h3 {
 
   #map {
     margin: auto;
-    top: 10%;
+    top: 30%;
     width: 85%;
     height: 75%;
     z-index: 1;
@@ -324,11 +350,11 @@ h3 {
   /* Position elements inside card */
   .card {
     position: absolute;
-    top: 72%;
-    left: 42%;
+    top: 88%;
+    left: 7%;
     margin: auto;
     margin-top: 2%;
-    width: 50%;
+    width: 85%;
     height: 30%;
     z-index: 2;
     padding: 0;
@@ -337,18 +363,19 @@ h3 {
   }
 
   .card img {
-    width: 35%;
+    width: 30%;
   }
 
   #results {
     margin: auto;
+    width: 100%;
   }
 
   #artistInfo {
     position: absolute;
     top: 0;
+    left: 40%;
     width: 45%;
-    margin-left: 40%;
   }
 
   #artistCard {
@@ -358,6 +385,14 @@ h3 {
   #artistCard::after {
     content: "\a";
     white-space: pre;
+  }
+
+  #ticketContainer {
+    margin-top: 10%;
+  }
+
+  #faq {
+    margin-top: 15%;
   }
 }
 
@@ -380,7 +415,7 @@ h3 {
 
   #map {
     margin: auto;
-    top: 29%;
+    top: 30%;
     width: 85%;
     height: 75%;
     z-index: 1;
@@ -390,7 +425,7 @@ h3 {
   /* Position elements inside card */
   .card {
     position: absolute;
-    top: 90%;
+    top: 88%;
     left: 7%;
     margin: auto;
     margin-top: 2%;
@@ -408,13 +443,14 @@ h3 {
 
   #results {
     margin: auto;
+    width: 100%;
   }
 
   #artistInfo {
     position: absolute;
     top: 0;
+    left: 45%;
     width: 45%;
-    margin-left: 40%;
   }
 
   #artistCard {
@@ -424,6 +460,14 @@ h3 {
   #artistCard::after {
     content: "\a";
     white-space: pre;
+  }
+
+  #ticketContainer {
+    margin-top: 10%;
+  }
+
+  #faq {
+    margin-top: 15%;
   }
 }
 
