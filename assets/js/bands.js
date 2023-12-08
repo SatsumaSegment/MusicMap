@@ -209,6 +209,8 @@ async function displayArtistData(event, hist) {
 }
 
 // Add History
+
+
 function addHistory(name) {
   var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
 
@@ -239,6 +241,8 @@ function addHistory(name) {
   });
 }
 
+
+
 // Removing History
 function removeHistory(event) {
   event.preventDefault();
@@ -246,6 +250,8 @@ function removeHistory(event) {
   artistHistory = [];
   var dropdown = $("#dropdownList");
   dropdown.empty();
+
+  noHistory();
 }
 
 async function historyArtistData(event) {
@@ -264,6 +270,19 @@ existingHistory.forEach(function (Name) {
   listEl.append(buttonEl);
   dropdown.append(listEl);
 });
+
+// No History Placeholder
+window.onload = noHistory
+
+function noHistory() {
+  if (localStorage.getItem("history") === null) {
+    var dropdown = $("#dropdownList");
+    var listEl = $("<li>");
+    var buttonEl = $('<button class="dropdown-item" id="historyButton">No History Available</button>')
+    listEl.append(buttonEl)
+    dropdown.append(listEl)
+  }
+}
 
 // Listen for clicks on clear button
 clearButton.on("click", removeHistory);
