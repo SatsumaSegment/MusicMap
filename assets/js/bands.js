@@ -66,7 +66,6 @@ async function displayArtistData(event, hist) {
     })
     .then(async function (data) {
 
-      console.log(data)
       // Check if data is returned
       if (data == "") {
         // If no data, check band's past to get information to return
@@ -105,6 +104,8 @@ async function displayArtistData(event, hist) {
               "text-align: center;"
             );
             // Empty any old contents
+            var ticketContEl = $("#ticketContainer")
+            ticketContEl.addClass("hidden")
             imgDiv.empty();
             nameDiv.empty();
             btnDiv.empty();
@@ -193,10 +194,10 @@ async function displayArtistData(event, hist) {
         var ticketsURL = ID.offers[0].url
         var ticketOffers = ID.offers
 
-        console.log(availableTickets)
+        console.log(ticketOffers.length)
 
-        if (availableTickets != "available" || ticketsURL == "" || ticketOffers == "") {
-          return;
+        if (ticketOffers == "") {
+          ticketCont.addClass("hidden")
         } else {
           var venueDate = srtTime.split("T")[0];
           var venueTime = srtTime.split("T")[1];
@@ -212,6 +213,7 @@ async function displayArtistData(event, hist) {
         </div>`)
           var ticketStart = $(`<div class="card-footer text-body-secondary">GOING LIVE ON: ${venueDate} AT ${venueTime}</div>`)
 
+          ticketCont.removeClass("hidden")
           ticketsEl.append(ticketHeader, ticketBody, ticketStart)
           ticketCont.append(ticketsEl)
         }
@@ -320,3 +322,5 @@ function noHistory() {
 
 // Listen for clicks on clear button
 clearButton.on("click", removeHistory);
+
+

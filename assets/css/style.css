@@ -30,6 +30,18 @@ body {
   padding: 0;
 }
 
+#ticketContainer {
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.hidden {
+  display: none
+}
+
 /* Font types */
 .logo-font {
   font-family: "Fredoka", sans-serif;
@@ -139,7 +151,6 @@ body {
 }
 #tickets {
   left: 10%;
-  bottom: 15%;
   height: 45%;
   width: 80%;
   margin-top: 30px;
