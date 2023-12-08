@@ -105,7 +105,9 @@ async function displayArtistData(event, hist) {
             );
             // Empty any old contents
             var ticketContEl = $("#ticketContainer")
-            ticketContEl.addClass("hidden")
+            ticketContEl.addClass("hidden")            
+            var ticketH1El = $("#ticketH1")
+            ticketH1El.addClass("hidden")
             imgDiv.empty();
             nameDiv.empty();
             btnDiv.empty();
@@ -213,6 +215,8 @@ async function displayArtistData(event, hist) {
         </div>`)
           var ticketStart = $(`<div class="card-footer text-body-secondary">GOING LIVE ON: ${venueDate} AT ${venueTime}</div>`)
 
+          var ticketH1El = $("#ticketH1")
+          ticketH1El.removeClass("hidden")
           ticketCont.removeClass("hidden")
           ticketsEl.append(ticketHeader, ticketBody, ticketStart)
           ticketCont.append(ticketsEl)
@@ -284,10 +288,7 @@ function removeHistory(event) {
   artistHistory = [];
   var dropdown = $("#dropdownList");
   dropdown.empty();
-  var ticketsElMain = $("#ticketContainer")
-  ticketsElMain.empty();
   noHistory();
-
 }
 
 async function historyArtistData(event) {

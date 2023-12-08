@@ -42,6 +42,13 @@ body {
   display: none
 }
 
+#ticketH1 {
+  text-align: center;
+  position: absolute;
+  left: 45%;
+  bottom: -85%
+}
+
 /* Font types */
 .logo-font {
   font-family: "Fredoka", sans-serif;
