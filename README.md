@@ -46,14 +46,11 @@ MusicMap is a web application designed to enhance the user's experience in explo
   - [Google Fonts](https://fonts.google.com/) - Library of free and open-source fonts.
 
 - **APIs:**
-  - [Leaflet API](https://leafletjs.com/) or [Mapbox API](https://www.mapbox.com/) for interactive map functionality.
+  - [GoogleMaps API](https://developers.google.com/maps) or [Bands In Town API](https://artists.bandsintown.com/support/api-installation) for interactive map functionality.
 
-## Installation
+## Accessing the Website
 
-1. Clone the repository: `git clone https://github.com/SatsumaSegment/MusicMap.git`
-2. Open `index.html` in a web browser.
-
-## Usage
+![Screenshot of my site](assets/img/page1.png)
 
 ### Searching for Artists
 
