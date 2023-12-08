@@ -203,6 +203,7 @@ h3 {
     width: 85%;
     height: 75%;
     z-index: 1;
+    margin-top: 20px;
   }
 
   /* Position elements inside card */
@@ -235,5 +236,159 @@ h3 {
     margin-left: 40%;
   }
 
-  /* Search button position */
+  #artistCard {
+    margin: 2px;
+  }
+
+  #artistCard::after {
+    content: "\a";
+    white-space: pre;
+  }
+
+
 }
+
+@media only screen and (max-width: 1200px) {
+  body {
+    height: 100%;
+    display: block;
+  }
+
+  /* Hero Styling */
+  .hero-text {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  /* Map and card positioning */
+  .main {
+    display: block;
+  }
+
+  #map {
+    margin: auto;
+    top: 10%;
+    width: 85%;
+    height: 75%;
+    z-index: 1;
+    margin-top: 20px;
+  }
+
+  /* Position elements inside card */
+  .card {
+    position: absolute;
+    top: 72%;
+    left: 42%;
+    margin: auto;
+    margin-top: 2%;
+    width: 50%;
+    height: 30%;
+    z-index: 2;
+    padding: 0;
+    text-align: left;
+    padding: 2%;
+  }
+
+  .card img {
+    width: 35%;
+  }
+
+  #results {
+    margin: auto;
+  }
+
+  #artistInfo {
+    position: absolute;
+    top: 0;
+    width: 45%;
+    margin-left: 40%;
+  }
+
+  #artistCard {
+    margin: 2px;
+  }
+
+  #artistCard::after {
+    content: "\a";
+    white-space: pre;
+  }
+
+
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    height: 100%;
+    display: block;
+  }
+
+  /* Hero Styling */
+  .hero-text {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  /* Map and card positioning */
+  .main {
+    display: block;
+  }
+
+  #map {
+    margin: auto;
+    top: 29%;
+    width: 85%;
+    height: 75%;
+    z-index: 1;
+    margin-top: 20px;
+  }
+
+  /* Position elements inside card */
+  .card {
+    position: absolute;
+    top: 90%;
+    left: 7%;
+    margin: auto;
+    margin-top: 2%;
+    width: 85%;
+    height: 30%;
+    z-index: 2;
+    padding: 0;
+    text-align: left;
+    padding: 2%;
+  }
+
+  .card img {
+    width: 35%;
+  }
+
+  #results {
+    margin: auto;
+  }
+
+  #artistInfo {
+    position: absolute;
+    top: 0;
+    width: 45%;
+    margin-left: 40%;
+  }
+
+  #artistCard {
+    margin: 2px;
+  }
+
+  #artistCard::after {
+    content: "\a";
+    white-space: pre;
+  }
+
+
+}
+
+@media only screen and (max-width: 620px) {
+  body {
+    display: none;
+  }
+}
+
+
+
