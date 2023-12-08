@@ -30,6 +30,10 @@ body {
   padding: 0;
 }
 
+.navbar-toggler {
+  float: right;
+}
+
 #ticketContainer {
   width: 80%;
   height: 100%;
@@ -85,7 +89,7 @@ body {
 /* Styling for the Hero */
 .hero {
   position: relative;
-  height: 55%;
+  /* height: 55%; */
   letter-spacing: 2px;
   background-image: url(../img/hero.jpg);
   background-size: contain;
