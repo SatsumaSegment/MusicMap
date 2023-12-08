@@ -230,6 +230,7 @@ h3 {
 
   #artistInfo {
     position: absolute;
+    top: 0;
     width: 45%;
     margin-left: 40%;
   }
