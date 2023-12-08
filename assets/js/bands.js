@@ -3,8 +3,8 @@ var searchButton = $("#search-button");
 var clearButton = $("#historyClear");
 var locateBand = [];
 var historyButton = $("#dropdownList");
-var ticketContEl = $("#ticketContainer")
-var ticketH1El = $("#ticketH1")
+var ticketContEl = $("#ticketContainer");
+var ticketH1El = $("#ticketH1");
 
 // Display Artist
 async function displayArtistData(event, hist) {
@@ -25,8 +25,8 @@ async function displayArtistData(event, hist) {
   // Validation for checkboxes - past, upcoming and all gigs
   if (pastC.is(":checked") && !upcomingC.is(":checked")) {
     var time = "Past";
-    ticketContEl.addClass("hidden")            
-    ticketH1El.addClass("hidden")
+    ticketContEl.addClass("hidden");
+    ticketH1El.addClass("hidden");
   } else if (upcomingC.is(":checked") && !pastC.is(":checked")) {
     var time = "Upcoming";
   } else if (upcomingC.is(":checked") && pastC.is(":checked")) {
@@ -69,7 +69,6 @@ async function displayArtistData(event, hist) {
       }
     })
     .then(async function (data) {
-
       // Check if data is returned
       if (data == "") {
         // If no data, check band's past to get information to return
@@ -108,10 +107,10 @@ async function displayArtistData(event, hist) {
               "text-align: center;"
             );
             // Empty any old contents
-            var ticketContEl = $("#ticketContainer")
-            ticketContEl.addClass("hidden")            
-            var ticketH1El = $("#ticketH1")
-            ticketH1El.addClass("hidden")
+            var ticketContEl = $("#ticketContainer");
+            ticketContEl.addClass("hidden");
+            var ticketH1El = $("#ticketH1");
+            ticketH1El.addClass("hidden");
             imgDiv.empty();
             nameDiv.empty();
             btnDiv.empty();
@@ -179,7 +178,7 @@ async function displayArtistData(event, hist) {
 
       locateBand = []; // Empty old info from array
 
-      var ticketsElMain = $("#ticketContainer")
+      var ticketsElMain = $("#ticketContainer");
       ticketsElMain.empty();
 
       // Venue Information
@@ -188,44 +187,54 @@ async function displayArtistData(event, hist) {
         var srtTime = ID.starts_at;
         var venue = ID.venue;
         var strAd = venue.street_address;
-        var countryName = venue.country
+        var countryName = venue.country;
         var lat = venue.latitude;
         var lng = venue.longitude;
         var loc = venue.location;
         var name = venue.name;
         var artName = ID.lineup[0];
 
-         // Ticket Cards        
+        // Ticket Cards
         // var availableTickets = ID.offers[0].status
-        var ticketsURL = ID.offers[0].url
-        var ticketOffers = ID.offers
+        try {
+          var ticketsURL = ID.offers[0].url;
+        } catch {
+          var ticketsURL = "No URL";
+        }
+        var ticketOffers = ID.offers;
 
-        console.log(ticketOffers)
+        console.log(ticketOffers);
 
-        if (ticketsURL == "") {
-          ticketCont.addClass("hidden")
+        if (ticketsURL === "No URL") {
+          var ticketContEl = $("#ticketContainer");
+          var ticketH1El = $("#ticketH1");
+          ticketContEl.addClass("hidden");
+          ticketH1El.addClass("hidden");
         } else {
           var venueDate = srtTime.split("T")[0];
           var venueTime = srtTime.split("T")[1];
-          var ticketsEl = $(`<div class="card text-center" id="tickets"></div>`)
-          var ticketCont = $("#ticketContainer")
-          var ticketHeader = $(`<div class="card-header">${name}</div>`)
+          var ticketsEl = $(
+            `<div class="card text-center" id="tickets"></div>`
+          );
+          var ticketCont = $("#ticketContainer");
+          var ticketHeader = $(`<div class="card-header">${name}</div>`);
           var ticketBody = $(`
-          <div class="card-body" id="ticketsBody">
-          <h5 class="card-title">${artName}</h5>
-          <a href="${ticketsURL}" target="blank" class="btn btn-primary">You can buy tickets here</a>
-          <br></br>
-          <p class="card-text">PLAYING AT: ${loc}. ${countryName}</p>
-        </div>`)
-          var ticketStart = $(`<div class="card-footer text-body-secondary">GOING LIVE ON: ${venueDate} AT ${venueTime}</div>`)
+            <div class="card-body" id="ticketsBody">
+            <h5 class="card-title">${artName}</h5>
+            <a href="${ticketsURL}" target="blank" class="btn btn-primary">You can buy tickets here</a>
+            <br></br>
+            <p class="card-text">PLAYING AT: ${loc}. ${countryName}</p>
+          </div>`);
+          var ticketStart = $(
+            `<div class="card-footer text-body-secondary">GOING LIVE ON: ${venueDate} AT ${venueTime}</div>`
+          );
 
-          var ticketH1El = $("#ticketH1")
-          ticketH1El.removeClass("hidden")
-          ticketCont.removeClass("hidden")
-          ticketsEl.append(ticketHeader, ticketBody, ticketStart)
-          ticketCont.append(ticketsEl)
+          var ticketH1El = $("#ticketH1");
+          ticketH1El.removeClass("hidden");
+          ticketCont.removeClass("hidden");
+          ticketsEl.append(ticketHeader, ticketBody, ticketStart);
+          ticketCont.append(ticketsEl);
         }
-        
 
         // Check street address exists (some cases it doesn't)
         if (strAd == "") {
@@ -251,7 +260,6 @@ async function displayArtistData(event, hist) {
 }
 
 // Add History
-
 
 function addHistory(name) {
   var existingHistory = JSON.parse(localStorage.getItem("history")) || [];
@@ -283,8 +291,6 @@ function addHistory(name) {
   });
 }
 
-
-
 // Removing History
 function removeHistory(event) {
   event.preventDefault();
@@ -313,19 +319,19 @@ existingHistory.forEach(function (Name) {
 });
 
 // No History Placeholder
-window.onload = noHistory
+window.onload = noHistory;
 
 function noHistory() {
   if (localStorage.getItem("history") === null) {
     var dropdown = $("#dropdownList");
     var listEl = $("<li>");
-    var buttonEl = $('<button class="dropdown-item" id="historyButton">No History Available</button>')
-    listEl.append(buttonEl)
-    dropdown.append(listEl)
+    var buttonEl = $(
+      '<button class="dropdown-item" id="historyButton">No History Available</button>'
+    );
+    listEl.append(buttonEl);
+    dropdown.append(listEl);
   }
 }
 
 // Listen for clicks on clear button
 clearButton.on("click", removeHistory);
-
-
