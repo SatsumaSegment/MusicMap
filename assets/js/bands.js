@@ -170,6 +170,9 @@ async function displayArtistData(event, hist) {
 
       locateBand = []; // Empty old info from array
 
+      var ticketsElMain = $("#ticketContainer")
+      ticketsElMain.empty();
+
       // Venue Information
       data.forEach(function (ID) {
         // Venue Location
@@ -181,6 +184,29 @@ async function displayArtistData(event, hist) {
         var loc = venue.location;
         var name = venue.name;
         var artName = ID.lineup[0];
+
+         // Ticket Cards        
+        var availableTickets = ID.offers[0].status
+        var ticketsURL = ID.offers[0].url
+
+        if (availableTickets != "available" || ticketsURL == "") {
+          return;
+        } else {
+          var ticketsEl = $(`<div class="card text-center" id="tickets"></div>`)
+          var ticketCont = $("#ticketContainer")
+          var ticketHeader = $(`<div class="card-header">${name}</div>`)
+          var ticketBody = $(`
+          <div class="card-body" id="ticketsBody">
+          <h5 class="card-title">${artName}</h5>
+          <p class="card-text"></p>
+          <a href="${ticketsURL}" target="blank" class="btn btn-primary">You can buy tickets here</a>
+        </div>`)
+          var ticketStart = $(`<div class="card-footer text-body-secondary">${srtTime}</div>`)
+
+          ticketsEl.append(ticketHeader, ticketBody, ticketStart)
+          ticketCont.append(ticketsEl)
+        }
+        
 
         // Check street address exists (some cases it doesn't)
         if (strAd == "") {
@@ -202,6 +228,8 @@ async function displayArtistData(event, hist) {
       if (!hist) {
         addHistory(artistName);
       }
+
+      console.log(data)
     });
 }
 
@@ -247,8 +275,10 @@ function removeHistory(event) {
   artistHistory = [];
   var dropdown = $("#dropdownList");
   dropdown.empty();
-
+  var ticketsElMain = $("#ticketContainer")
+  ticketsElMain.empty();
   noHistory();
+
 }
 
 async function historyArtistData(event) {

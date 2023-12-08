@@ -133,6 +133,22 @@ body {
   width: 80%;
 }
 
+/* Tickets */
+#ticketsHere {
+  top: 50%
+}
+#tickets {
+  left: 10%;
+  bottom: 15%;
+  height: 45%;
+  width: 80%;
+  margin-top: 30px;
+}
+
+#tickets .card-body {
+  flex: none;
+}
+
 /* Styling for the band name */
 h3 {
   margin-top: 25%;
