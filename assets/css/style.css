@@ -99,7 +99,7 @@ body {
 
 .hero-title {
   position: relative;
-  font-size: 120px;
+  /* font-size: 120px; */
   margin-top: 1%;
   z-index: 2;
 }
@@ -247,7 +247,7 @@ h3 {
 
   /* Search button */
   #search-button {
-    position: absolute;
+    position: sticky;
     top: 70%;
     right: 8%;
     z-index: 5;
@@ -269,8 +269,8 @@ h3 {
 
   /* Position elements inside card */
   .card {
-    position: absolute;
-    top: 88%;
+    /* position: absolute; */
+    top: -46rem;
     left: 7%;
     margin: auto;
     margin-top: 2%;
@@ -353,8 +353,8 @@ h3 {
 
   /* Position elements inside card */
   .card {
-    position: absolute;
-    top: 88%;
+    /* position: absolute; */
+    top: -46rem;
     left: 7%;
     margin: auto;
     margin-top: 2%;
@@ -428,8 +428,8 @@ h3 {
 
   /* Position elements inside card */
   .card {
-    position: absolute;
-    top: 88%;
+    /* position: absolute; */
+    top: -46rem;
     left: 7%;
     margin: auto;
     margin-top: 2%;
@@ -475,8 +475,91 @@ h3 {
   }
 }
 
-/* @media only screen and (max-width: 620px) {
+@media only screen and (max-width: 570px) {
+  body {
+    height: 100%;
+    display: block;
+  }
+
+  /* Hero Styling */
+  .hero-text {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  /* Map and card positioning */
+  .main {
+    display: block;
+  }
+
+  #map {
+    margin: auto;
+    top: 30%;
+    width: 85%;
+    height: 75%;
+    z-index: 1;
+    margin-top: 20px;
+  }
+
+  /* Position elements inside card */
+  .card {
+    /* position: absolute; */
+    top: -46rem;
+    left: 7%;
+    margin: auto;
+    margin-top: 2%;
+    width: 85%;
+    height: 30%;
+    z-index: 2;
+    padding: 0;
+    text-align: left;
+    padding: 2%;
+  }
+
+  .hero {
+    background-size: cover;
+  }
+
+  .card img {
+    width: 35%;
+  }
+
+  #results {
+    margin: auto;
+    width: 100%;
+  }
+
+  #artistInfo {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    width: 45%;
+  }
+
+  #artistCard {
+    margin: 2px;
+  }
+
+  #artistCard::after {
+    content: "\a";
+    white-space: pre;
+  }
+
+  #ticketContainer {
+    margin-top: 10%;
+  }
+
+  #faq {
+    margin-top: 15%;
+  }
+
+  #search-input {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 260px) {
   body {
     display: none;
   }
-} */
+}
