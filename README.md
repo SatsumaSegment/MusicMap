@@ -52,6 +52,9 @@ MusicMap is a web application designed to enhance the user's experience in explo
 
 ![Screenshot of my site](assets/img/page1.png)
 
+### Deployed site link:
+https://satsumasegment.github.io/MusicMap/
+
 ### Searching for Artists
 
 1. Open the MusicMap web application in your preferred web browser.
